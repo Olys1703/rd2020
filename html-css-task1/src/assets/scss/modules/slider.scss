@@ -1,0 +1,38 @@
+.slider {
+  position: relative;
+  &__slider-item{
+    width: 70%;
+    margin: auto;
+  }
+  &__to-prev {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%);
+  }
+  &__to-next {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+  }
+  &__navigation {
+    margin-top: 92px;
+  }
+  &__navigation-list {
+    margin: auto;
+    width: 7%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__navigation-item {
+    @include size(10px);
+    border-radius: 50%;
+    background-color: #ffffff;
+    opacity: 0.44;
+    &_active {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+}

@@ -2,36 +2,23 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const PATHS = {
-  src: path.join(__dirname, './src'),
-  dist: path.join(__dirname, './dist'),
-  assets: 'assets/'
-}
-
-
 module.exports = {
-  externals: {
-    paths: PATHS
-  },
-  entry: {
-    app: PATHS.src
-  },
+    entry: './index.js',
   output: {
-    filename: `${PATHS.assets}js/[name].js`,
-    path: PATHS.dist,
-    publicPath: '/'
+    path: path.resolve(__dirname,'dist'),
+    filename: 'bundle.js'
   },
   mode: 'development',
   plugins: [
     new HtmlWebPackPlugin ({
-      template: `${PATHS.src}/index.html`,
+      template: './index.html',
       filename: './index.html'
     }),
     new MiniCssExtractPlugin({
-      //template: './src/style.css',
-      filename: `${PATHS.assets}css/[name].html`,
+      template: './style.css',
+      filename: 'style.css',
       //chunkFilename: '[id].css',
-      //ignoreOrder: false, 
+      ignoreOrder: false, 
     }),
   ],
   module: {
@@ -43,8 +30,15 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
+              esModule: false,
             }
           },
+         /* {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          }*/
         ],
       },
       {
@@ -59,13 +53,30 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
+          /*
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
-          'sass-loader' 
+          'sass-loader',*/
+          MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' 
         ],
       },
+      /*{
+        test: /\.json$/,
+        use: [
+          {
+            loader: 'json-loader'
+          }
+        ]
+      }*/
     ]
   },
+  
+  /*node: {
+    fs: "empty"
+ },*/
   devtool: 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname,'dist'),

@@ -1,0 +1,27 @@
+.header {
+  padding-top: 44px;
+  height: 640px;
+  @include font($headerNavFont, $headerNavFontSize, $headerNavFontWeight, $headerNavFontColor);
+  background-image: url('../img/hero-image.jpg');
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+  }
+  &__logo {
+    margin-left: 99px;
+  }
+  &__nav {
+   width: 35%;
+  }
+  &__login {
+    width: 123px;
+    height: 37px;
+    margin-right: 93px;
+  }
+  &__slider {
+    margin-top: 103px;
+  }
+}

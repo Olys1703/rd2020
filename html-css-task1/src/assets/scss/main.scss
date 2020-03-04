@@ -1,0 +1,12 @@
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";
+@import "utils/reset";
+
+//modules
+@import "./modules/h1.scss";
+@import "./modules/header.scss";
+@import "./modules/menu.scss";
+@import "./modules/cust-btn.scss";
+@import "./modules/slider.scss";
+@import "./modules/slider-item.scss";

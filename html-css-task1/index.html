@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPAM</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <h1>EPAM</h1>
+    <div class="header__container">
+      <img src="./src/assets/img/logo.png" width="301" height="17" alt="front-end courses logo" class="header__logo">
+      <nav class="header__nav">
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="#">Программа</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Расписание</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Преподаватели</a></li>
+        </ul>
+      </nav>
+      <button class="header__login cust-btn">
+        <img class="cust-btn__img" src="./src/assets/img/man-user.svg" alt="man user shadow">
+        Войти
+      </button>
+    </div>
+    <div class="header__slider slider">
+      <img class="slider__to-prev" src="./src/assets/img/icon-arrow-left.png" alt="previous slide arrow">
+      <img class="slider__to-next" src="./src/assets/img/icon-arrow-right.png" alt="next slide arrow">
+      <article class="slider__slider-item slider-item">
+        <img class="slider-item__icon" src="./src/assets/img/icon-responsive.svg" alt="icon responsiv desktop mobile">
+        <div class="slider-item__content">
+          <h2 class="slider-item__title">Введение в HTML и CSS </h2>
+          <h3 class="slider-item__subtitle">Интенсивный онлайн-курс для начинающих</h3>
+          <p class="slider-item__description">Курс рассчитан на людей, у кого пока нет опыта работы с HTML и CSS.
+            Занятия проходят 3 раза в неделю, в 18-30. За время занятий вы освоите
+            все современные подходы работы с HTML и CSS и научитесь верстать 
+            макеты любой сложности.</p>
+          <button class="slider-item__goto cust-btn">
+            ЗАПИСАТЬСЯ
+          </button>
+        </div>
+      </article>
+      <div class="slider__navigation">
+        <ol class="slider__navigation-list">
+          <li class="slider__navigation-item"></li>
+          <li class="slider__navigation-item slider__navigation-item_active"></li>
+          <li class="slider__navigation-item"></li>
+          <li class="slider__navigation-item"></li>
+          <li class="slider__navigation-item"></li>
+        </ol>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+  </main>
+  <footer class="footer">
+  </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.slider-item {
+  display: flex;
+  justify-content: center;
+  &__icon {
+    @include size(110px, 103px);
+    margin-top: 38px;
+    margin-left: 16px;
+  }
+  &__content {
+    margin-left: 47px;
+  }
+  &__title {
+    font-size: 52px;
+    font-weight: 800;
+  }
+  &__subtitle {
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  &__description {
+    margin-top: 14px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+  }
+  &__goto {
+    margin-top: 23px;
+    @include size(230px, 50px);
+    font-weight: 700;
+  }
+}
