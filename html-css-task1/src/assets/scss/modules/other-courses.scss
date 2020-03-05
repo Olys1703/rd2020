@@ -1,0 +1,29 @@
+.other-courses {
+  .float-list {
+    flex-wrap: wrap;
+    background-color: transparent;
+    height: auto;
+    &__content {
+      flex-direction: row;
+      align-items: flex-start;
+      min-width: 250px;
+    }
+    &__main-text {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: normal;
+    }
+    &__item {
+      &:not(:first-child)::before {
+        display: none;
+      }
+    }
+    &__description {
+      display: flex;
+      flex-direction: column;
+    }
+    &__add-text {
+      font-size: 14px;
+    }
+  }
+}

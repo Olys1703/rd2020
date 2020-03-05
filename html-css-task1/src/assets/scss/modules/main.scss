@@ -1,0 +1,4 @@
+.main {
+  padding: 59px 0;
+  @include font($headerNavFont, $headerNavFontSize, $headerNavFontWeight, $headerNavFontColor);
+}

@@ -2,7 +2,7 @@
   padding-top: 44px;
   height: 640px;
   @include font($headerNavFont, $headerNavFontSize, $headerNavFontWeight, $headerNavFontColor);
-  background-image: url('../img/hero-image.jpg');
+  background: url('../img/hero-image.jpg');
   &__container {
     display: flex;
     align-items: center;
