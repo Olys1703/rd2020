@@ -1,12 +1,20 @@
 .other-courses {
+  margin-top: 85px;
+  .section__content {
+    margin: auto;
+    margin-top: 18px;
+    width: 80%;
+    justify-content: space-between;
+  }
   .float-list {
     flex-wrap: wrap;
     background-color: transparent;
     height: auto;
     &__content {
+      margin: 0;
       flex-direction: row;
       align-items: flex-start;
-      min-width: 250px;
+      //min-width: 200px;
     }
     &__main-text {
       font-size: 16px;
@@ -14,15 +22,20 @@
       line-height: normal;
     }
     &__item {
+      margin-top: 57px;
+      flex: 0;
+      flex-basis: 200px;
       &:not(:first-child)::before {
         display: none;
       }
     }
     &__description {
+      margin-left: 25px;
       display: flex;
       flex-direction: column;
     }
     &__add-text {
+      margin-top: 6px;
       font-size: 14px;
     }
   }

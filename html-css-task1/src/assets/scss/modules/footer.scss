@@ -1,0 +1,54 @@
+.footer {
+  padding-top: 42px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 65px;
+  margin: auto;
+  @include font($headerNavFont, 18px, 600, #919191);
+  background-color: #38383a;
+  display: flex;
+  justify-content: space-between;
+  &__description {
+    flex-basis: 420px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #919191;
+    font-family: "Open Sans";
+    font-weight: 400;
+  }
+  &__logo {
+    font-size: 24px;
+    color: #8a8a8a;
+    font-weight: 800;
+  }
+  &__copyright {
+    margin-top: 23px;
+  }
+  &__add-info {
+    margin-top: 16px;
+    font-size: 11px;
+  }
+  &__useful-links {
+    flex-basis: 491px;
+  }
+  &__links-header {
+
+  }
+  &__links-list {
+    height: 207px;
+    width: 476px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+  }
+  &__links-item {
+    width: 220px;
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 14px;
+    a {
+      color: #919191;
+    }
+  }
+}

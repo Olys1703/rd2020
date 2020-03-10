@@ -1,0 +1,23 @@
+.review-item {
+  &__photo {
+    margin-top: 4px;
+    @include size(128px);
+    border-radius: 50%;
+  }
+  &__main {
+    margin-left: 20px;
+    margin-top: 3px;
+    color: #4b4b4b;
+    font-size: 14px;
+  }
+  &__name {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  &__text {
+    font-weight: 100;
+    font-style: italic;
+    line-height: 24px;
+    width: 92%;
+  }
+}

@@ -1,0 +1,58 @@
+.subscribe {
+  margin-top: 92px;
+  padding: 46px 100px;
+  background-color: #39c2d7;
+  display: flex;
+  justify-content: space-between;
+  &__info {
+    flex-basis: 50%;
+  }
+  &__input-container {
+    //flex-basis: 50%;
+  }
+  &__title {
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  &__description {
+    margin-top: 3px;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  &__username-wrapper {
+    margin-top: 10px;
+    position: relative;
+  }
+  &__email-wrapper {
+    margin-top: 32px;
+    position: relative;
+  }
+  &__username-label {
+    position: absolute;
+    z-index: 1;
+    font-size: 16px;
+    line-height: 30px;
+    color: #b5b5b5;
+    font-weight: 400;
+  }
+  &__email-label {
+    position: absolute;
+    z-index: 1;
+    position: absolute;
+    z-index: 1;
+    font-size: 16px;
+    line-height: 30px;
+    color: #b5b5b5;
+    font-weight: 400;
+  }
+  &__submit {
+    margin-top: 34px;
+    @include size(161px, 41px);
+    background-color: #046c7c;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 400;
+  }
+}

@@ -44,7 +44,7 @@ html { box-sizing: border-box; }
 
 :focus { outline: 0; }
 
-img, audio, video { max-width: 100%; height: auto; }
+img, audio, video { max-width: 100%; /*height: auto;*/ }
 
 audio, canvas, iframe, video, img, svg { vertical-align: middle; }
 

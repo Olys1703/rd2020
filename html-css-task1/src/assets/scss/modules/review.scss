@@ -1,0 +1,29 @@
+.review {
+  margin-top: 40px;
+  &__list {
+    margin: auto;
+    
+    width: 83%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__item {
+    margin-top: 33px;
+    display: flex;
+    flex-basis: 490px;
+    
+  }
+  &__show-all {
+    display: block;
+    margin: auto;
+    margin-top: 85px;
+    @include size(220px, 50px);
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 2px solid #39c2d7;
+    font-weight: 700;
+    font-size: 16px;
+    color: #39c2d7;
+  }
+}
