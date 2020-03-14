@@ -1,3 +1,7 @@
 .input-def {
-  @include size(475px, 41px)
+  @include size(475px, 41px);
+  padding-left: 16px;
+  @media (max-width: $phoneWidth ) {
+    width: 320px;
+  }
 }

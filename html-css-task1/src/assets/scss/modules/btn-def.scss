@@ -3,4 +3,8 @@
   border: 1px solid #ffffff;
   border-radius: 5px;
   color: #ffffff;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }

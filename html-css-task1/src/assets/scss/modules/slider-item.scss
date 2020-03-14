@@ -10,19 +10,22 @@
     margin-left: 47px;
   }
   &__title {
-    font-size: 52px;
+    font-size: rem(52);
     font-weight: 800;
   }
   &__subtitle {
-    margin-top: 10px;
+    margin-top: rem(10);
     font-size: 28px;
     font-weight: 700;
   }
   &__description {
     margin-top: 14px;
-    font-size: 18px;
+    font-size: rem(18);
     line-height: 30px;
     font-weight: 400;
+    @media (max-width: $tableWidth) {
+      display: none;
+    }
   }
   &__goto {
     margin-top: 23px;

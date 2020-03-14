@@ -19,3 +19,21 @@
 @import "./modules/review.scss";
 @import "./modules/review-item.scss";
 @import "./modules/footer.scss";
+@import "./modules/header-wrapper.scss";
+@import "./modules/about-course.scss";
+
+html {
+  //line-height: $mainLineHeight;
+	font-size: $mainFontSize;
+	//color: $mainFontColor;
+  height: 100%;
+  @media screen and (max-width: $smDesktopWidth) {
+		font-size: 16px;
+  }
+  @media screen and (max-width: $tableWidth) {
+		font-size: 14px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+		font-size: 12px;
+  }
+}

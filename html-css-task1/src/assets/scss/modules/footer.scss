@@ -1,23 +1,31 @@
 .footer {
   padding-top: 42px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-bottom: 65px;
-  margin: auto;
+  padding-bottom: 52px;
   @include font($headerNavFont, 18px, 600, #919191);
   background-color: #38383a;
-  display: flex;
-  justify-content: space-between;
+  &__content {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 83%;
+    @media (max-width: $smDesktopWidth) {
+      justify-content: center;
+    }
+  }
   &__description {
-    flex-basis: 420px;
-    font-size: 12px;
+    flex-basis: 42%;
+    font-size: rem(12);
     line-height: 16px;
     color: #919191;
     font-family: "Open Sans";
     font-weight: 400;
+    @media (max-width: $smDesktopWidth) {
+      flex-basis: 80%;
+    }
   }
   &__logo {
-    font-size: 24px;
+    font-size: rem(24);
     color: #8a8a8a;
     font-weight: 800;
   }
@@ -29,7 +37,11 @@
     font-size: 11px;
   }
   &__useful-links {
-    flex-basis: 491px;
+    flex-basis: 49%;
+    @media (max-width: $smDesktopWidth) {
+      flex-basis: 80%;
+      margin-top: 20px;
+    }
   }
   &__links-header {
 
@@ -46,9 +58,13 @@
     width: 220px;
     margin-top: 16px;
     font-weight: 400;
-    font-size: 14px;
+    font-size: rem(14);
     a {
       color: #919191;
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   }
 }

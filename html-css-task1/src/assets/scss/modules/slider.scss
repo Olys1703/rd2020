@@ -1,38 +1,64 @@
 .slider {
-  position: relative;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: flex;
   &__slider-item{
     width: 70%;
     margin: auto;
   }
-  &__to-prev {
+  &__arrow {
     position: absolute;
     top: 50%;
-    left: 24px;
     transform: translateY(-50%);
-  }
-  &__to-next {
-    position: absolute;
-    top: 50%;
-    right: 24px;
-    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    @media (max-width: $phoneWidth ) {
+      display: none;
+    }
+    &_to-prev {
+      left: 24px;
+    }
+    &_to-next {
+      right: 24px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__navigation {
-    margin-top: 92px;
+    //margin-top: 92px;
+    position: absolute;
+    bottom: 27px;
+    width: 100%;
   }
   &__navigation-list {
     margin: auto;
-    width: 7%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   &__navigation-item {
     @include size(10px);
     border-radius: 50%;
     background-color: #ffffff;
     opacity: 0.44;
+    @media (max-width: $tableWidth) {
+      @include size(15px);
+    }
     &_active {
       transform: scale(1.5);
       opacity: 1;
+    }
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0 2px 2px rgb(255, 255, 255);
+    }
+    &:not(:first-child){
+      margin-left: 10px;
+      @media (max-width: $tableWidth) {
+        margin-left: 15px;
+      }
     }
   }
 }

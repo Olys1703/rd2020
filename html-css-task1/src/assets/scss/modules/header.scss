@@ -1,8 +1,7 @@
 .header {
   padding-top: 44px;
-  height: 640px;
-  @include font($headerNavFont, $headerNavFontSize, $headerNavFontWeight, $headerNavFontColor);
-  background: url('../img/hero-image.jpg');
+  position: relative;
+  z-index: 2;
   &__container {
     display: flex;
     align-items: center;
@@ -11,10 +10,15 @@
 
   }
   &__logo {
-    margin-left: 99px;
+    margin-left: 8%;
+    font-size: rem(24);
+    font-weight: 800;
   }
   &__nav {
    width: 35%;
+   @media (max-width: $smDesktopWidth) {
+    display: none;
+  }
   }
   &__login {
     width: 123px;
@@ -22,6 +26,6 @@
     margin-right: 93px;
   }
   &__slider {
-    margin-top: 103px;
+    //margin-top: 103px;
   }
 }

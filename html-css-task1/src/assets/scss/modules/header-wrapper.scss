@@ -1,0 +1,7 @@
+.header-wrapper {
+  background-image: url('../img/hero-image.jpg');
+  height: 640px;
+  @include font($headerNavFont, $headerNavFontSize, $headerNavFontWeight, $headerNavFontColor);
+  background-size: cover;
+  position: relative;
+}

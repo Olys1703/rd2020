@@ -1,0 +1,17 @@
+.about-course {
+  .float-list {
+    height: 235px;
+    margin-top: 34px;
+    @media (max-width: $tableWidth) {
+      height: 600px;
+    }
+    &__item {
+      @media (max-width: $tableWidth) {
+        flex-basis: 200px;
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}

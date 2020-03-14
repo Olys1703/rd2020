@@ -3,6 +3,7 @@
     margin-top: 4px;
     @include size(128px);
     border-radius: 50%;
+    background-image: url(../img/without-photo.png);
   }
   &__main {
     margin-left: 20px;
@@ -12,12 +13,14 @@
   }
   &__name {
     font-weight: 700;
-    font-size: 14px;
+    font-size: rem(14);
   }
   &__text {
+    height: 90%;
+    width: 92%;
     font-weight: 100;
     font-style: italic;
     line-height: 24px;
-    width: 92%;
+    overflow: hidden;
   }
 }
