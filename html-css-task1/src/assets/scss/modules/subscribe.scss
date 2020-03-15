@@ -21,6 +21,7 @@
   &__input-container {
     @media (max-width: $smDesktopWidth) {
       margin-top: 20px;
+      width: 80%;
     }
     //flex-basis: 50%;
   }
@@ -75,6 +76,7 @@
     position: absolute;
     z-index: 1;
     left: 0;
+    top: 0;
     font-size: rem(16);
     line-height: 41px;
     color: #b5b5b5;
@@ -85,6 +87,7 @@
     position: absolute;
     z-index: 1;
     left: 0;
+    top: 0;
     font-size: rem(16);
     line-height: 41px;
     color: #b5b5b5;

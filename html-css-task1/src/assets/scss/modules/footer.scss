@@ -12,10 +12,13 @@
     @media (max-width: $smDesktopWidth) {
       justify-content: center;
     }
+    @media (max-width: $phoneWidth ) {
+      height: auto;
+    }
   }
   &__description {
     flex-basis: 42%;
-    font-size: rem(12);
+    font-size: 12px;
     line-height: 16px;
     color: #919191;
     font-family: "Open Sans";
@@ -42,23 +45,35 @@
       flex-basis: 80%;
       margin-top: 20px;
     }
+    @media (max-width: $phoneWidth ) {
+      height: auto;
+    }
   }
   &__links-header {
 
   }
   &__links-list {
     height: 207px;
-    width: 476px;
+    width: 472px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-between;
+    @media (max-width: $phoneWidth) {
+      width: 83%;
+    }
+    @media (max-width: $phoneWidth ) {
+      height: auto;
+    }
   }
   &__links-item {
-    width: 220px;
+    width: 46%;
     margin-top: 16px;
     font-weight: 400;
-    font-size: rem(14);
+    font-size: 14px;
+    @media (max-width: $phoneWidth ) {
+      width: auto;
+    }
     a {
       color: #919191;
       &:hover {

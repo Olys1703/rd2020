@@ -2,7 +2,6 @@
   margin-top: 40px;
   &__list {
     margin: auto;
-    
     width: 83%;
     display: flex;
     flex-wrap: wrap;
@@ -14,6 +13,11 @@
     display: flex;
     flex-basis: 490px;
     height: 186px;
+    @media (max-width: $phoneWidth ) {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
   }
   &__show-all {
     display: block;

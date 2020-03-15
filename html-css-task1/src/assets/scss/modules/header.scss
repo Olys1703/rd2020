@@ -23,7 +23,20 @@
   &__login {
     width: 123px;
     height: 37px;
-    margin-right: 93px;
+    margin-right: 8%;
+    @media (max-width: $phoneWidth ) {
+      width: 50px;
+    }
+    .btn-def__name {
+      @media (max-width: $phoneWidth ) {
+        display: none;
+      }
+    }
+    .btn-def__img {
+      @media (max-width: $phoneWidth ) {
+        margin-right: 0;
+      }
+    }
   }
   &__slider {
     //margin-top: 103px;

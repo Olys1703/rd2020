@@ -13,6 +13,7 @@
     align-items: flex-start;
     //flex-direction: column;
     //align-items: center;
+    
     &:not(:first-child)::before {
       content: '';
       position: relative;
@@ -23,20 +24,17 @@
       top: calc(50% - 67px);
     }
     &:hover {
-      
         //width: 258px;
         &::before {
           display: none;
         }
         transform: scale(1.08);
-        
         z-index: 2;
         border-radius: 10px;
         filter: drop-shadow(0 0 10px rgba(0,0,0,0.15));
         background-color: #ffffff;
         .float-list__content {
           transform: scale(.926);
-          
         }
         .float-list__link {
           position: absolute;
@@ -49,6 +47,14 @@
           text-align: center;
           line-height: 40px;
           color: #ffffff;
+          @media (max-width: $smDesktopWidth ) {
+            width: 145px;
+          }
+          @media (max-width: $phoneWidth ) {
+            height: 28px;
+            line-height: 28px;
+            bottom: 0;
+          }
         }
         .float-list__main-text {
           position: relative;

@@ -3,14 +3,24 @@
     height: 235px;
     margin-top: 34px;
     @media (max-width: $tableWidth) {
-      height: 600px;
+      height: 510px;
     }
     &__item {
       @media (max-width: $tableWidth) {
-        flex-basis: 200px;
+        flex-basis: 180px;
+        height: 164px;
         &::before {
           display: none;
         }
+      }
+      @media (max-width: $phoneWidth ) {
+        height: 127px;
+      }
+    }
+    &__main-text {
+      @media (max-width: $phoneWidth ) {
+        padding-top: 35px;
+        line-height: 56px;
       }
     }
   }

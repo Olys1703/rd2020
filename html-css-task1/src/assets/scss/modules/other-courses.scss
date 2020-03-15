@@ -12,8 +12,8 @@
     flex-wrap: wrap;
     background-color: transparent;
     height: auto;
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 8%;
+    padding-right: 8%;
     &__content {
       margin: 0;
       flex-direction: row;
@@ -32,6 +32,7 @@
       padding-right: 28px;
       height: 120px;
       align-items: center;
+      max-width: 267px;
       //margin-top: 57px;
       //flex: 0;
       &:not(:first-child)::before {
