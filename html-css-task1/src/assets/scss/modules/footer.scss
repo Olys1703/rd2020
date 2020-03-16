@@ -1,81 +1,101 @@
 .footer {
-  padding-top: 42px;
-  padding-bottom: 52px;
-  @include font($headerNavFont, 18px, 600, #919191);
   background-color: #38383a;
+  padding-bottom: 52px;
+  padding-top: 42px;
+
+  @include font($headerNavFont, 18px, 600, $footerColor);
+
   &__content {
-    margin: auto;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     width: 83%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
     @media (max-width: $smDesktopWidth) {
       justify-content: center;
     }
-    @media (max-width: $phoneWidth ) {
+
+    @media (max-width: $phoneWidth) {
       height: auto;
     }
   }
+
   &__description {
-    flex-basis: 42%;
     font-size: 12px;
     line-height: 16px;
-    color: #919191;
     font-family: "Open Sans";
+    color: $footerColor;
+    flex-basis: 42%;
     font-weight: 400;
+
     @media (max-width: $smDesktopWidth) {
       flex-basis: 80%;
     }
   }
+
   &__logo {
     font-size: rem(24);
     color: #8a8a8a;
     font-weight: 800;
   }
+
   &__copyright {
     margin-top: 23px;
   }
+
   &__add-info {
-    margin-top: 16px;
     font-size: 11px;
+    margin-top: 16px;
   }
+
   &__useful-links {
     flex-basis: 49%;
+
     @media (max-width: $smDesktopWidth) {
       flex-basis: 80%;
       margin-top: 20px;
     }
-    @media (max-width: $phoneWidth ) {
+
+    @media (max-width: $phoneWidth) {
       height: auto;
     }
   }
-  &__links-header {
 
-  }
   &__links-list {
-    height: 207px;
-    width: 472px;
     display: flex;
+    width: 472px;
+    height: 207px;
+    align-content: space-between;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: space-between;
+
     @media (max-width: $phoneWidth) {
       width: 83%;
     }
-    @media (max-width: $phoneWidth ) {
+
+    @media (max-width: $phoneWidth) {
       height: auto;
     }
   }
+
   &__links-item {
     width: 46%;
-    margin-top: 16px;
-    font-weight: 400;
     font-size: 14px;
-    @media (max-width: $phoneWidth ) {
+    font-weight: 400;
+    margin-top: 16px;
+
+    @media (max-width: $phoneWidth) {
       width: auto;
     }
+
     a {
-      color: #919191;
+      color: $footerColor;
+
+      @media (max-width: $phoneWidth) {
+        text-decoration: underline;
+      }
+
       &:hover {
         cursor: pointer;
         text-decoration: underline;

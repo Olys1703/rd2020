@@ -1,11 +1,9 @@
 .section {
+
   &__title {
     font-size: rem(48);
-    color: #777777;
-    font-weight: 300;
     text-align: center;
-  }
-  &__content {
-    //position: relative;
+    color: $boringColor;
+    font-weight: 300;
   }
 }

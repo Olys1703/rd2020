@@ -17,9 +17,15 @@
     "node-sass": "^4.13.0",
     "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.1",
     "sass": "^1.26.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
+    "stylelint": "^13.2.1",
+    "stylelint-config-airbnb": "0.0.0",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
     "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
@@ -28,7 +34,8 @@
   },
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --progress",
-    "build": "node_modules/.bin/webpack --progress"
+    "build": "node_modules/.bin/webpack --progress",
+    "stylelint:scss": "stylelint css/*.css"
   },
   "browserslist": [
     "> 1%",

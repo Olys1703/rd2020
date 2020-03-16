@@ -1,38 +1,44 @@
 .review {
   margin-top: 40px;
+
   &__list {
-    margin: auto;
-    width: 83%;
     display: flex;
+    width: 83%;
+    margin: auto;
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
   &__item {
-    margin: auto;
-    margin-top: 33px;
     display: flex;
-    flex-basis: 490px;
     height: 186px;
-    @media (max-width: $phoneWidth ) {
-      flex-direction: column;
-      align-items: center;
+    margin: auto;
+    flex-basis: 490px;
+    margin-top: 33px;
+
+    @media (max-width: $phoneWidth) {
       height: auto;
+      align-items: center;
+      flex-direction: column;
     }
   }
+
   &__show-all {
     display: block;
     margin: auto;
-    margin-top: 69px;
-    @include size(220px, 50px);
-    border-radius: 10px;
-    background-color: #ffffff;
-    border: 2px solid #39c2d7;
-    font-weight: 700;
     font-size: rem(16);
-    color: #39c2d7;
+    color: $primeryColor;
+    background-color: $secondaryColor;
+    border: 2px solid $primeryColor;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 69px;
+
+    @include size(220px, 50px);
+
     &:hover {
+      box-shadow: 0 0 4px #000;
       cursor: pointer;
-      box-shadow: 0 0 4px #000000;
     }
   }
 }

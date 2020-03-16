@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
       <h1>EPAM</h1>
       <div class="header__container">
         <div class="header__logo">&lt;FRONT-END COURSES /&gt;</div>
-        <nav class="header__nav">
+        <nav class="header__nav burger">
           <ul class="menu">
             <li class="menu__item"><a class="menu__link" href="#">Программа</a></li>
             <li class="menu__item"><a class="menu__link" href="#">Расписание</a></li>
@@ -21,8 +21,8 @@
           </ul>
         </nav>
         <button class="header__login btn-def">
-          <img class="btn-def__img" src="./src/assets/img/man-user.svg" alt="man user shadow">
-          <p class="btn-def__name">Войти</p>
+          <img class="btn-def__img" src="./src/assets/img/man-user.svg" alt="man user shadow icon">
+          <span class="btn-def__name">Войти</span>
         </button>
       </div>
     </header>
@@ -57,12 +57,12 @@
   <main class="main">
     <section class="section about-course">
       <h2 class="section__title">О курсе</h2>
-      <div class="section__content float-list">
+      <ul class="section__content float-list">
         <li class="float-list__item">
           <div class="float-list__content">
             <p class="float-list__description">
-              <div class="float-list__main-text">102</div>
-              <div class="float-list__add-text">часа</div>
+              <span class="float-list__main-text">102</span>
+              <span class="float-list__add-text">часа</span>
             </p>
             <a class="float-list__link" href="#">подробнее</a>
           </div>
@@ -70,8 +70,8 @@
         <li class="float-list__item">
           <div class="float-list__content">
             <p class="float-list__description">
-              <div class="float-list__main-text">34</div>
-              <div class="float-list__add-text">занятия</div>
+              <span class="float-list__main-text">34</span>
+              <span class="float-list__add-text">занятия</span>
             </p>
             <a class="float-list__link" href="#">подробнее</a>
           </div>
@@ -79,8 +79,8 @@
         <li class="float-list__item">
           <div class="float-list__content">
             <p class="float-list__description">
-              <div class="float-list__main-text">18</div>
-              <div class="float-list__add-text">тем</div>
+              <span class="float-list__main-text">18</span>
+              <span class="float-list__add-text">тем</span>
             </p>
             <a class="float-list__link" href="#">подробнее</a>
           </div>
@@ -88,17 +88,17 @@
         <li class="float-list__item">
           <div class="float-list__content">
             <p class="float-list__description">
-              <div class="float-list__main-text">12</div>
-              <div class="float-list__add-text">преподавателей</div>
+              <span class="float-list__main-text">12</span>
+              <span class="float-list__add-text">преподавателей</span>
             </p>
             <a class="float-list__link" href="#">подробнее</a>
           </div>
         </li>
-      </div>
+      </ul>
     </section>
     <section class="section other-courses">
       <h2 class="section__title">Другие курсы</h2>
-      <div class="section__content float-list">
+      <ul class="section__content float-list">
         <li class="float-list__item">
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_multimedia-09_2516850.png" alt="phone" class="float-list__icon">
@@ -112,7 +112,7 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_multimedia-06_2516855.png" alt="gamepad" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">Разработка игр</div>
+              <a class="float-list__main-text" href="#">Разработка игр</a>
               <div class="float-list__add-text">4 месяца</div>
             </div>
           </div>
@@ -121,7 +121,7 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_multimedia-04_2516853.png"  alt="laptop" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">Машинное обучение</div>
+              <a class="float-list__main-text" href="#">Машинное обучение</a>
               <div class="float-list__add-text">6 месяцев</div>
             </div>
           </div>
@@ -130,7 +130,7 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_multimedia-03_2516856.png"  alt="camera" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">Обработка фото</div>
+              <a class="float-list__main-text" href="#">Обработка фото</a>
               <div class="float-list__add-text">2 месяца</div>
             </div>
           </div>
@@ -139,7 +139,7 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_29-web_essential_3401847.png"  alt="package" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">E-commerce</div>
+              <a class="float-list__main-text" href="#">E-commerce</a>
               <div class="float-list__add-text">3 месяцы</div>
             </div>
           </div>
@@ -148,7 +148,7 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_43-web_essential_3401861.png" alt="magnifier" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">Продвижение в интернете</div>
+              <a class="float-list__main-text" href="#">Продвижение в интернете</a>
               <div class="float-list__add-text">4 месяца</div>
             </div>
           </div>
@@ -157,7 +157,7 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_48-web_essential_3401866.png" alt="diagram" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">Анализ данных</div>
+              <a class="float-list__main-text" href="#">Анализ данных</a>
               <div class="float-list__add-text">6 месяцев</div>
             </div>
           </div>
@@ -166,12 +166,12 @@
           <div class="float-list__content">
             <img src="./src/assets/img/iconfinder_multimedia-04_2516853.png"  alt="laptop" class="float-list__icon">
             <div class="float-list__description">
-              <div class="float-list__main-text">Разработка на java</div>
+              <a class="float-list__main-text" href="#">Разработка на java</a>
               <div class="float-list__add-text">6 месяцев</div>
             </div>
           </div>
         </li>
-      </div>
+      </ul>
     </section>
     <form class="subscribe" action="#" method="POST" onsubmit="return false">
       <div class="subscribe__info">
@@ -196,7 +196,9 @@
       <h2 class="review__title section__title">Отзывы</h2>
       <ul class="review__list">
         <li class="review__item review-item">
-          <img src="./src/assets/img/avatar-2.jpg" alt="photo" class="review-item__photo">
+          <div class="review-item__photo-wrapper">
+            <img src="./src/assets/img/avatar-2.jpg" alt="photo" class="review-item__photo">
+          </div>
           <div class="review-item__main">
             <p class="review-item__name">Aaron Little</p>
             <p class="review-item__text">I never knew anything about computer programming 
@@ -207,7 +209,9 @@
           </div>
         </li>
         <li class="review__item review-item">
-          <img src="./src/assets/img/avatar-3.jpg" alt="photo" class="review-item__photo">
+          <div class="review-item__photo-wrapper">
+            <img src="./src/assets/img/avatar-3.jpg" alt="photo" class="review-item__photo">
+          </div>
           <div class="review-item__main">
             <p class="review-item__name">Samantha Bradley</p>
             <p class="review-item__text">I really like the program and it's so much fun and pretty amazing to learn!</p>
@@ -215,7 +219,9 @@
           </div>
         </li>
         <li class="review__item review-item">
-          <img src="./src/assets/img/avatar-1.jpg" alt="photo" class="review-item__photo">
+          <div class="review-item__photo-wrapper">
+            <img src="./src/assets/img/avatar-1.jpg" alt="photo" class="review-item__photo">
+          </div>
           <div class="review-item__main">
             <p class="review-item__name">Hannah Lawrence</p>
             <p class="review-item__text">Learned a lot about many aspects of coding. 
@@ -225,7 +231,9 @@
           </div>
         </li>
         <li class="review__item review-item">
-          <img src="./src/assets/img/avatar-4.jpg" alt="photo" class="review-item__photo">
+          <div class="review-item__photo-wrapper">
+            <img src="./src/assets/img/avatar-4.jpg" alt="photo" class="review-item__photo">
+          </div>
           <div class="review-item__main">
             <p class="review-item__name">Michael Matthews</p>
             <p class="review-item__text">Before starting the Introduction to Programming

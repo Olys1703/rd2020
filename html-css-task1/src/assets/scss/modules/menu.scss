@@ -1,8 +1,10 @@
 .menu {
   display: flex;
   justify-content: space-between;
+
   &__link {
     color: inherit;
+
     &:hover {
       cursor: pointer;
       text-decoration: underline;

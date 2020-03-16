@@ -1,39 +1,39 @@
-@import "utils/vars";
-@import "utils/mixins";
-@import "utils/fonts";
-@import "utils/reset";
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/fonts';
+@import 'utils/reset';
 
 //modules
-@import "./modules/h1.scss";
-@import "./modules/header.scss";
-@import "./modules/main.scss";
-@import "./modules/menu.scss";
-@import "./modules/btn-def.scss";
-@import "./modules/input-def.scss";
-@import "./modules/slider.scss";
-@import "./modules/slider-item.scss";
-@import "./modules/section.scss";
-@import "./modules/float-list.scss";
-@import "./modules/other-courses.scss";
-@import "./modules/subscribe.scss";
-@import "./modules/review.scss";
-@import "./modules/review-item.scss";
-@import "./modules/footer.scss";
-@import "./modules/header-wrapper.scss";
-@import "./modules/about-course.scss";
+@import './modules/h1';
+@import './modules/header';
+@import './modules/main';
+@import './modules/menu';
+@import './modules/btn-def';
+@import './modules/input-def';
+@import './modules/slider';
+@import './modules/slider-item';
+@import './modules/section';
+@import './modules/float-list';
+@import './modules/other-courses';
+@import './modules/subscribe';
+@import './modules/review';
+@import './modules/review-item';
+@import './modules/footer';
+@import './modules/header-wrapper';
+@import './modules/about-course';
 
 html {
   //line-height: $mainLineHeight;
-	font-size: $mainFontSize;
-	//color: $mainFontColor;
+  font-size: $mainFontSize;
+  //color: $mainFontColor;
   height: 100%;
   @media screen and (max-width: $smDesktopWidth) {
-		font-size: 16px;
+    font-size: 16px;
   }
   @media screen and (max-width: $tableWidth) {
-		font-size: 14px;
+    font-size: 14px;
   }
   @media screen and (max-width: $phoneWidth) {
-		font-size: 12px;
+    font-size: 12px;
   }
 }

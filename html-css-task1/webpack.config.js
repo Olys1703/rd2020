@@ -60,7 +60,19 @@ module.exports = {
             : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',*/
-          MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' 
+         // MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' 
+
+
+        'style-loader',
+         MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+        }, {
+            loader: 'postcss-loader',
+            //options: { config: { `./js/postcss.config.js`}}
+        }, {
+          loader: 'sass-loader',
+        }
         ],
       },
       /*{

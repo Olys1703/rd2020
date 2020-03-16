@@ -1,64 +1,75 @@
 .other-courses {
-  padding-top: 85px;
   padding-bottom: 72px;
+  padding-top: 85px;
+
   .section__content {
     margin: auto;
-    margin-top: 50px;
     padding: 0;
-   // width: 80%;
     justify-content: center;
+    margin-top: 50px;
   }
+
   .float-list {
-    flex-wrap: wrap;
-    background-color: transparent;
     height: auto;
-    padding-left: 8%;
-    padding-right: 8%;
+    background-color: transparent;
+    flex-wrap: wrap;
+    padding-left: $sizePadding;
+    padding-right: $sizePadding;
+
     &__content {
       margin: 0;
-      flex-direction: row;
       align-items: center;
-      
-      //min-width: 200px;
+      flex-direction: row;
     }
+
     &__main-text {
       font-size: rem(16);
-      font-weight: 700;
       line-height: normal;
+      font-weight: 700;
+
+      @media (max-width: $phoneWidth) {
+        color: $primeryColor;
+        text-decoration: underline;
+      }
     }
+
     &__item {
-      flex-basis: 220px;
-      padding-left: 30px;
-      padding-right: 28px;
       height: 120px;
       align-items: center;
+      flex-basis: 220px;
       max-width: 267px;
-      //margin-top: 57px;
-      //flex: 0;
+      padding-left: 30px;
+      padding-right: 28px;
       &:not(:first-child)::before {
         display: none;
       }
+
       &:hover {
         transform: none;
+
         .float-list__content {
-        transform: none;
+          transform: none;
         }
+
         .float-list__main-text {
+          color: $primeryColor;
           animation: none;
         }
+
         .float-list__add-text {
           animation: none;
         }
       }
     }
+
     &__description {
+      align-items: flex-start;
       margin-left: 25px;
-      display: flex;
-      flex-direction: column;
     }
+
     &__add-text {
-      margin-top: 6px;
       font-size: rem(14);
+      margin-top: 6px;
     }
   }
 }

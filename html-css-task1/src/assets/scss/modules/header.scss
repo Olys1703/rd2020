@@ -1,44 +1,47 @@
 .header {
-  padding-top: 44px;
   position: relative;
   z-index: 2;
+  padding-top: 44px;
+
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 
   }
+
   &__logo {
-    margin-left: 8%;
     font-size: rem(24);
     font-weight: 800;
+    margin-left: $sideMargin;
   }
+
   &__nav {
-   width: 35%;
-   @media (max-width: $smDesktopWidth) {
-    display: none;
+    width: 35%;
+    @media (max-width: $smDesktopWidth) {
+      display: none;
+    }
   }
-  }
+
   &__login {
     width: 123px;
     height: 37px;
-    margin-right: 8%;
-    @media (max-width: $phoneWidth ) {
+    margin-right: $sideMargin;
+
+    @media (max-width: $phoneWidth) {
       width: 50px;
     }
+
     .btn-def__name {
-      @media (max-width: $phoneWidth ) {
+      @media (max-width: $phoneWidth) {
         display: none;
       }
     }
+
     .btn-def__img {
-      @media (max-width: $phoneWidth ) {
+      @media (max-width: $phoneWidth) {
         margin-right: 0;
       }
     }
-  }
-  &__slider {
-    //margin-top: 103px;
   }
 }

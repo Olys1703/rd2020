@@ -1,15 +1,18 @@
 .btn-def {
+  color: $secondaryColor;
   background-color: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid $secondaryColor;
   border-radius: 5px;
-  color: #ffffff;
+
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
+
   &__name {
     display: contents;
   }
+
   &__img {
     margin-right: 7px;
   }
