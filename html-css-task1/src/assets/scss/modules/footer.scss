@@ -32,6 +32,10 @@
     @media (max-width: $smDesktopWidth) {
       flex-basis: 80%;
     }
+    @media (max-width: $phoneWidth) {
+      order: 2;
+      margin-top: 20px;
+    }
   }
 
   &__logo {
