@@ -1,0 +1,13 @@
+.header-wrapper {
+  position: relative;
+  height: 640px;
+  background-image: url("../img/hero-image.jpg");
+  background-size: cover;
+  min-height: 450px;
+
+  @include font($headerNavFont, $headerNavFontSize, $headerNavFontWeight, $headerNavFontColor);
+
+  @media (max-width: $tableWidth) {
+    height: 100vh;
+  }
+}

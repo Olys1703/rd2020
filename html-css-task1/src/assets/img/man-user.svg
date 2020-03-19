@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 13" width="11" height="13">
+	<defs>
+		<image width="16" height="16" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfiAhIOJQWFj9U/AAAAtElEQVQoz22QKw7CUBBFzytgECDr2wWwBhSyCkHYGh5BqppUYFgDChbQpECCgyD4XETLa4E5cubMFzwKlapUqVQhFsr1IbeFsxfOVjpSm+gTD7zx/PKf/x2cCl9fyFlD5npJkl6aY6NEmTIl7VjdSn1mTBBLYEbAmqW7NJWxdvplr7gRFrJYNMLJFA71DnLc6Rg7P1yvetTQTENXg0q4kppCyq0+U44xU0aEhMCRI1tWbJzgDZBjqEz8d8E0AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTAyLTE4VDE0OjM3OjA1KzAxOjAwjzeVaAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0wMi0xOFQxNDozNzowNSswMTowMP5qLdQAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="HEADER">
+		<g id="NAVIGATION">
+			<g id="Sign in button">
+				<use id="man-user" href="#img1" transform="matrix(0.813,0,0,0.813,-1,0)"/>
+			</g>
+		</g>
+	</g>
+</svg>
