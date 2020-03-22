@@ -1,0 +1,26 @@
+{
+  "name": "sergei_lysenko",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^6.8.0"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/rd2020/sergei_lysenko.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/rd2020/sergei_lysenko/issues"
+  },
+  "homepage": "https://gitlab.com/rd2020/sergei_lysenko#readme"
+}
