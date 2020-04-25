@@ -1,0 +1,11 @@
+.screen-window {
+  display: block;
+  margin: auto;
+  width: 80%;
+  background-color: $base-color;
+  border: rgb(117, 117, 117) 2px solid;
+  padding: 10px;
+  color: rgb(117, 117, 117);
+  min-height: 40vh;
+  white-space: pre-wrap;
+}

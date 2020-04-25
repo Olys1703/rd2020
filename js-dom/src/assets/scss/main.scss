@@ -1,0 +1,37 @@
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/fonts';
+@import 'utils/reset';
+//modules
+@import './modules/button-def.scss';
+@import './modules/button-container.scss';
+@import './modules/screen-window.scss';
+@import './modules/creating-form.scss';
+@import './modules/disabled.scss';
+@import './modules/user-content.scss';
+@import './modules/ref-def.scss';
+@import './modules/scroll-btn.scss';
+
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgb(255,255,255);
+  padding: 10px;
+  min-height: 100vh;
+}
+html {
+  //line-height: $mainLineHeight;
+  font-size: $main-font-size;
+  //color: $mainFontColor;
+  height: 100%;
+  background-color: $base-color;
+  @media screen and (max-width: $sm-desktop-width) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $table-width) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: $phone-width) {
+    font-size: 12px;
+  }
+}

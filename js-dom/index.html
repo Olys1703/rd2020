@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="disabled"></h1>
+  <div class="wrapper">
+    <div class="user-content"></div>
+    <div class="button-container">
+      <button class="create-elem button-def">Добавить элемент</button>
+      <button class="generate-html button-def">Сгенерировать HTML</button>
+      <button class="creating-form__clear-all button-def">Очистить</button>
+    </div>
+    <pre id="screen-window" class="screen-window"></pre>
+    <div class="creating-form-wrapper">
+      <form class="creating-form" action="" onsubmit="return false">
+        <h2 class="creating-form__title">Добавить элемент</h2>
+        <div class="creating-form__tag-name-wrapper">
+          <label class="creating-form__tag-name-label" for="tag-name">Тег</label>
+          <input class="creating-form__tag-name" id="tag-name" type="text">
+        </div>
+        <div class="creating-form__user-text-wrapper">
+          <label class="creating-form__user-text-label" for="user-text">Текст</label>
+          <textarea class="creating-form__user-text" name="user-text" id="user-text" cols="30" rows="10" class="user-text"></textarea>
+        </div>
+        <br>
+        <button class="creating-form__add-elem button-def">Добавить элемент</button>
+        <button class="creating-form__close-form">&#xd7;</button>
+      </form>
+    </div>
+  </div>
+  <button class="scroll-btn"></button>
+</body>
+</html>

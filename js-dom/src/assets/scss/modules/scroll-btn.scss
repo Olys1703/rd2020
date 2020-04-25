@@ -1,0 +1,14 @@
+.scroll-btn {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  @include size(50px);
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: $base-color;
+  &:hover {
+    cursor: pointer;
+    background-color: $secondary-color;
+  }
+}

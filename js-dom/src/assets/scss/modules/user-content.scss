@@ -1,0 +1,9 @@
+.user-content {
+  width: 80%;
+  margin: auto;
+  min-height: 40vh;
+  padding: 10px;
+  &__item:not(:first-child) {
+    margin-top: 25px;
+  }
+}
