@@ -1,0 +1,50 @@
+.slider-item {
+
+  &__icon {
+    margin-left: 16px;
+    margin-top: 38px;
+
+    @include size(110px, 103px);
+
+    @media (max-width: $phoneWidth) {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    margin-left: 47px;
+
+    @media (max-width: $phoneWidth) {
+      margin-left: 0;
+    }
+  }
+
+  &__title {
+    font-size: rem(52);
+    font-weight: 800;
+  }
+
+  &__subtitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: rem(10);
+  }
+
+  &__description {
+    font-size: rem(18);
+    line-height: 30px;
+    font-weight: 400;
+    margin-top: 14px;
+
+    @media (max-width: $tableWidth) {
+      display: none;
+    }
+  }
+
+  &__goto {
+    font-weight: 700;
+    margin-top: 23px;
+
+    @include size(230px, 50px);
+  }
+}

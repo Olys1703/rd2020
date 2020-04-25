@@ -1,0 +1,9 @@
+.section {
+
+  &__title {
+    font-size: rem(48);
+    text-align: center;
+    color: $boringColor;
+    font-weight: 300;
+  }
+}

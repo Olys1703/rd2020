@@ -1,0 +1,44 @@
+.review {
+  margin-top: 40px;
+
+  &__list {
+    display: flex;
+    width: 83%;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    height: 186px;
+    margin: auto;
+    flex-basis: 490px;
+    margin-top: 33px;
+
+    @media (max-width: $phoneWidth) {
+      height: auto;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  &__show-all {
+    display: block;
+    margin: auto;
+    font-size: rem(16);
+    color: $primeryColor;
+    background-color: $secondaryColor;
+    border: 2px solid $primeryColor;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 69px;
+
+    @include size(220px, 50px);
+
+    &:hover {
+      box-shadow: 0 0 4px #000;
+      cursor: pointer;
+    }
+  }
+}
