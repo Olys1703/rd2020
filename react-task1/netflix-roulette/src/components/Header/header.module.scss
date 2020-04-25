@@ -1,0 +1,32 @@
+@import '../../common/styles/vars.scss';
+.header {
+  position: relative;
+  font-weight: 700;
+  padding: 20px 0;
+  background-image: url(../../img/banner.jpg);
+  font-size: 1.2rem;
+}
+.brand {
+  color: $text-secondary;
+  text-decoration: none;
+}
+.container {
+  margin: auto;
+  width: 80%;
+  z-index: 1;
+  position: relative;
+}
+.concord-img-gradient {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}

@@ -1,0 +1,13 @@
+@import '../../common/styles/vars.scss';
+.footer {
+  padding: 20px 0;
+  background-color: $primary-color;
+}
+.container {
+  margin: auto;
+  width: 80%;
+}
+.brand {
+  color: $text-secondary;
+  text-decoration: none;
+}

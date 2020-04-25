@@ -1,0 +1,36 @@
+@import '../../common/styles/vars.scss';
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+.poster {
+  height: 450px;
+  width: 300px;
+  object-fit: cover;
+}
+.poster-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 450px;
+  width: 300px;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mock-poster {
+  height: 200px;
+  width: 200px;
+  background-color: $secondary-color;
+  /* display: block; */
+  border-radius: 50%;
+  /* vertical-align: middle; */
+  /* line-height: 100%; */
+  color: $text-primary;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

@@ -1,17 +1,14 @@
 import React from 'react';
-import {Header} from './components/Header/Header'
-import {Main} from './components/Main/Main'
-import {Footer} from './components/Footer/Footer'
-
-
+import SearchMoviePage from './components/SearchMoviePage/SearchMoviePage';
+import { Footer } from './components/Footer/Footer';
+import style from './app.module.scss';
 
 function App() {
   return (
-    <>
-      <Header></Header>
-      <Main></Main>
-      <Footer></Footer>
-    </>
+    <div className={style.wrapper}>
+      <SearchMoviePage />
+      <Footer />
+    </div>
   );
 }
 
