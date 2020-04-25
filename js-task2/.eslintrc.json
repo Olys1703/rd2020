@@ -19,6 +19,11 @@
         "no-param-reassign": 0,
         "guard-for-in": 0,
         "no-restricted-syntax": 0,
-        "no-continue": 0
+        "no-continue": 0,
+        "max-classes-per-file": 0,
+        "no-extend-native": 0,
+        "func-names": 0,
+        "no-unused-vars": 0,
+        "consistent-return":0
     }
 }
