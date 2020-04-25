@@ -1,0 +1,53 @@
+.creating-form {
+  width: 80%;
+  padding: 40px;
+  max-width: 800px;
+  min-height: 400px;
+  box-shadow: 0 0 8px 4px gray;
+  margin: auto;
+  margin-top: 50vh;
+  transform: translateY(-50%);
+  background-color: rgb(255, 255, 255);
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+  &__tag-name, &__user-text {
+    font-size: 20px;
+    width: calc(80%-50px);
+    border: 1px solid gray;
+    padding: 10px;
+  }
+  &__tag-name-label, &__user-text-label {
+    font-size: 20px;
+    display: inline-block;
+    width: 70px;
+  }
+  &__user-text-wrapper {
+    margin-top: 20px;
+  }
+  &__close-form {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    background-color: transparent;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__add-elem {
+    margin-left: 71px;
+  }
+}
+.creating-form-wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(134, 122, 122, 0.26);
+  z-index: 100;
+}
