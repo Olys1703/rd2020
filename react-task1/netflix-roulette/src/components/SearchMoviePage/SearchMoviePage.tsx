@@ -45,7 +45,7 @@ export default class SearchMoviePage extends React.Component<
   setMovies(movieName: string) {
     console.log(this.state.movies);
     console.log(movieName);
-    fetch('http://localhost:8080/films')
+    fetch('/films')
       .then((data) => data.json())
       .then((json) => {
         this.setState({ movies: json });
