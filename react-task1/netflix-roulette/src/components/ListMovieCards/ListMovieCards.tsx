@@ -1,13 +1,14 @@
 import React from 'react';
 import { MovieCard } from '../MovieCard/MovieCard';
 import style from './listMovieCards.module.scss';
-type Movie = {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: string;
-  Poster: string;
-};
+import { Movie } from '../../common/types/Movie';
+// type Movie = {
+//   Title: string;
+//   Year: string;
+//   imdbID: string;
+//   Type: string;
+//   Poster: string;
+// };
 interface Movies {
   movies: Movie[];
 }
@@ -17,7 +18,7 @@ export const ListMovieCards: React.FC<Movies> = (props) => {
   return (
     <section className={style.cards}>
       {props.movies.map((movie: Movie) => (
-        <MovieCard key={movie.imdbID} {...movie} />
+        <MovieCard key={movie.id} {...movie} />
       ))}
     </section>
   );

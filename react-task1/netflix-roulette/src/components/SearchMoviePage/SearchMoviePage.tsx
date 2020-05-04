@@ -3,65 +3,76 @@ import { Header } from '../Header/Header';
 import ListSort from '../ListSort/ListSort';
 import { ListMovieCards } from '../ListMovieCards/ListMovieCards';
 import { CnxtSearchToCards } from '../../common/context';
-//import type { Movie } from '../../common/types/Movie';
+import { Movie } from '../../common/types/Movie';
 import style from './searchMoviePage.module.scss';
-type Movie = {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: string;
-  Poster: string;
-};
+import { Search } from '../Search/Search';
+// type Movie = {
+//   Title: string;
+//   Year: string;
+//   imdbID: string;
+//   Type: string;
+//   Poster: string;
+// };
 
 export default class SearchMoviePage extends React.Component<
   {},
-  { movies: Movie[] }
+  { genres: { id: number; name: string }[]; movies: Movie[] }
 > {
   constructor(props: {}) {
     super(props);
     this.state = {
-      movies: [
-        // {
-        //   Title: 'Kill Bill: Vol. 1',
-        //   Year: '2003',
-        //   imdbID: 'tt0266697',
-        //   Type: 'movie',
-        //   Poster:
-        //     'https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
-        // },
-        // {
-        //   Title: 'Kill Bill: Vol. 2',
-        //   Year: '2004',
-        //   imdbID: 'tt0378194',
-        //   Type: 'movie',
-        //   Poster:
-        //     'https://m.media-amazon.com/images/M/MV5BNmFiYmJmN2QtNWQwMi00MzliLThiOWMtZjQxNGRhZTQ1MjgyXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_SX300.jpg',
-        // },
+      genres: [
+        { id: 28, name: 'Action' },
+        { id: 12, name: 'Adventure' },
+        { id: 16, name: 'Animation' },
+        { id: 35, name: 'Comedy' },
+        { id: 80, name: 'Crime' },
+        { id: 99, name: 'Documentary' },
+        { id: 18, name: 'Drama' },
+        { id: 10751, name: 'Family' },
+        { id: 14, name: 'Fantasy' },
+        { id: 36, name: 'History' },
+        { id: 27, name: 'Horror' },
+        { id: 10402, name: 'Music' },
+        { id: 9648, name: 'Mystery' },
+        { id: 10749, name: 'Romance' },
+        { id: 878, name: 'Science Fiction' },
+        { id: 10770, name: 'TV Movie' },
+        { id: 53, name: 'Thriller' },
+        { id: 10752, name: 'War' },
+        { id: 37, name: 'Western' },
       ],
+      movies: [],
     };
+    this.sortMovies = this.sortMovies.bind(this);
     this.setMovies = this.setMovies.bind(this);
   }
-  //static contextType = CnxtSearchToCards;
-  setMovies(movieName: string) {
-    console.log(this.state.movies);
-    console.log(movieName);
-    fetch('/films')
-      .then((data) => data.json())
-      .then((json) => {
-        this.setState({ movies: json });
-        console.log(this.state);
-      });
+
+  setMovies(movies: Movie[]) {
+    this.setState({ movies: movies });
+  }
+  subtitleGenre(geners: number[]) {
+    return geners.map((genre) => {
+      return this.state.genres.find((item) => item.id === genre);
+    });
+  }
+  sortMovies(sortKey: string) {
+    const movies = this.state.movies.concat();
+    movies.sort((a, b) => {
+      return a[sortKey] - b[sortKey];
+    });
+    this.setState({ movies: movies });
   }
   render() {
     return (
       <>
-        <CnxtSearchToCards.Provider value={{ setMovie: this.setMovies }}>
-          <Header />
-        </CnxtSearchToCards.Provider>
+        <Header barHidden={false}>
+          <Search setMovies={this.setMovies} />
+        </Header>
         <main className={style.main}>
           {this.state.movies.length ? (
             <>
-              <ListSort movies={this.state.movies} />
+              <ListSort movies={this.state.movies} setMovies={this.setMovies} />
               <ListMovieCards movies={this.state.movies} />
             </>
           ) : (

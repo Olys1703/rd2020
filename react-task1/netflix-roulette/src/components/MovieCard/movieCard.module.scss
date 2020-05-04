@@ -34,3 +34,11 @@
   align-items: center;
   text-align: center;
 }
+.release-date {
+  display: inline-block;
+  min-width: 40px;
+  min-height: 1rem;
+  padding: 2px;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+}

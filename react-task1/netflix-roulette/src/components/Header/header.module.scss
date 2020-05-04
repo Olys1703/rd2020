@@ -30,3 +30,13 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 }
+.search-btn {
+  float: right;
+  border: none;
+  padding: 0;
+  height: 40px;
+  width: 140px;
+  font-size: 20px;
+  color: $text-secondary;
+  background-color: $light-color;
+}

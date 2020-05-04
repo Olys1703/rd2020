@@ -1,0 +1,26 @@
+@import '../../common/styles/vars.scss';
+.movie {
+  margin-top: 40px;
+  display: flex;
+}
+.poster {
+  width: 400px;
+}
+.description {
+  color: $text-primary;
+  margin-left: 5rem;
+}
+.rating {
+  padding: 12px;
+  border: $success-color 2px solid;
+  border-radius: 50%;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.title {
+  color: $text-secondary;
+}
+.mock {
+}
