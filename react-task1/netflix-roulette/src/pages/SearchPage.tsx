@@ -4,14 +4,14 @@ import ListSort from '../components/ListSort/ListSort';
 import { ListMovieCards } from '../../src/components/ListMovieCards/ListMovieCards';
 //import { CnxtSearchToCards } from '../../common/context';
 import { Movie } from '../common/types/Movie';
-import { Search } from '../components/Search/Search';
+import { SearchWithRouter } from '../components/Search/Search';
 import style from './searchPage.module.scss';
 
 export default class SearchPage extends React.Component<
-  {},
+  { setMovie: (movie: Movie) => void },
   { movies: Movie[] }
 > {
-  constructor(props: {}) {
+  constructor(props: { setMovie: (movie: Movie) => void }) {
     super(props);
     this.state = {
       movies: [],
@@ -25,13 +25,16 @@ export default class SearchPage extends React.Component<
     return (
       <>
         <Header barHidden={false}>
-          <Search setMovies={this.setMovies} />
+          <SearchWithRouter setMovies={this.setMovies} />
         </Header>
         <main className={style.main}>
           {this.state.movies.length ? (
             <>
               <ListSort movies={this.state.movies} setMovies={this.setMovies} />
-              <ListMovieCards movies={this.state.movies} />
+              <ListMovieCards
+                movies={this.state.movies}
+                setMovie={this.props.setMovie}
+              />
             </>
           ) : (
             <div className={style['mock-list']}>No films found</div>

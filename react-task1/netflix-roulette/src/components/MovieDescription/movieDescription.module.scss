@@ -11,16 +11,53 @@
   margin-left: 5rem;
 }
 .rating {
-  padding: 12px;
+  //box-sizing: border-box;
+  --size: 50px;
+  flex-shrink: 0;
+  height: var(--size);
+  width: var(--size);
+  line-height: var(--size);
+  text-align: center;
+  //padding: 12px;
   border: $success-color 2px solid;
   border-radius: 50%;
 }
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .title {
   color: $text-secondary;
 }
+.cast {
+  margin-top: 10px;
+  text-align: justify;
+}
+.director {
+  margin-top: 10px;
+  text-align: justify;
+}
+.release {
+}
+.runtime {
+  margin-left: 20px;
+}
 .mock {
+}
+.mock-poster {
+  flex-shrink: 0;
+  height: 200px;
+  width: 200px;
+  background-color: $secondary-color;
+  /* display: block; */
+  border-radius: 50%;
+  /* vertical-align: middle; */
+  /* line-height: 100%; */
+  color: $text-primary;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

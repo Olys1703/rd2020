@@ -1,6 +1,6 @@
 import React from 'react';
-import { Search } from '../Search/Search';
 import style from './header.module.scss';
+import { Link } from 'react-router-dom';
 
 export const Header: React.FC<{ barHidden: boolean }> = (props) => {
   return (
@@ -12,7 +12,9 @@ export const Header: React.FC<{ barHidden: boolean }> = (props) => {
             netflixroulette
           </a>
           {props.barHidden && (
-            <button className={style['search-btn']}>SEARCH</button>
+            <Link to='/'>
+              <button className={style['search-btn']}>SEARCH</button>
+            </Link>
           )}
         </div>
         <div>{props.children}</div>

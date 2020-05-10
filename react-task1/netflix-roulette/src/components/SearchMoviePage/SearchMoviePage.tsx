@@ -2,17 +2,9 @@ import React from 'react';
 import { Header } from '../Header/Header';
 import ListSort from '../ListSort/ListSort';
 import { ListMovieCards } from '../ListMovieCards/ListMovieCards';
-import { CnxtSearchToCards } from '../../common/context';
 import { Movie } from '../../common/types/Movie';
 import style from './searchMoviePage.module.scss';
-import { Search } from '../Search/Search';
-// type Movie = {
-//   Title: string;
-//   Year: string;
-//   imdbID: string;
-//   Type: string;
-//   Poster: string;
-// };
+import { SearchWithRouter } from '../Search/Search';
 
 export default class SearchMoviePage extends React.Component<
   {},
@@ -67,13 +59,12 @@ export default class SearchMoviePage extends React.Component<
     return (
       <>
         <Header barHidden={false}>
-          <Search setMovies={this.setMovies} />
+          <SearchWithRouter setMovies={this.setMovies} />
         </Header>
         <main className={style.main}>
           {this.state.movies.length ? (
             <>
               <ListSort movies={this.state.movies} setMovies={this.setMovies} />
-              <ListMovieCards movies={this.state.movies} />
             </>
           ) : (
             <div className={style['mock-list']}>No films found</div>

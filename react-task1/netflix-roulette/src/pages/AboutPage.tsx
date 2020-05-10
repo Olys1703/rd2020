@@ -1,44 +1,67 @@
-import React from 'react';
+import React, { FormEvent, useState, ChangeEvent, useEffect } from 'react';
 import { Header } from '../components/Header/Header';
 import ListSort from '../components/ListSort/ListSort';
 import { ListMovieCards } from '../../src/components/ListMovieCards/ListMovieCards';
 //import { CnxtSearchToCards } from '../../common/context';
 import { Movie } from '../common/types/Movie';
 import style from './aboutPage.module.scss';
-import { Search } from '../components/Search/Search';
+import { SearchWithRouter } from '../components/Search/Search';
 import MovieDescription from '../components/MovieDescription/MovieDescription';
-
-export default class AboutPage extends React.Component<
-  { movie: Movie | undefined },
-  { movies: Movie[] }
-> {
-  constructor(props: { movie: Movie }) {
-    super(props);
-    this.state = {
-      movies: [],
-    };
-    this.setMovies = this.setMovies.bind(this);
-  }
-  setMovies(movies: Movie[]) {
-    this.setState({ movies: movies });
-  }
-  render() {
-    return (
-      <>
-        <Header barHidden={true}>
-          <MovieDescription movie={this.props.movie} />
-        </Header>
-        <main className={style.main}>
-          {this.state.movies.length ? (
-            <>
-              <ListSort movies={this.state.movies} setMovies={this.setMovies} />
-              <ListMovieCards movies={this.state.movies} />
-            </>
-          ) : (
-            <div className={style['mock-list']}>No films found</div>
-          )}
-        </main>
-      </>
-    );
-  }
+import '../components/API/getMoviesByTItle';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import getMoviesById from '../components/API/getMovieById';
+import getMoviesByTItle from '../components/API/getMoviesByTItle';
+import getCreditsByMovieId from '../components/API/getCreditsByMovieId';
+import getMoviesByDirectorName from '../components/API/getMoviesByDirectorName';
+interface IAboutPage extends RouteComponentProps<{ filmName: string }> {
+  movie: Movie | undefined;
+  setMovie: (movie: Movie) => void;
 }
+const AboutPage: React.FC<IAboutPage> = (props) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [mainMovie, setMainMovie] = useState<Movie>();
+  let tempMainMovie: Movie;
+  useEffect(() => {
+    if (props.movie) {
+      getMoviesById(props.movie.id).then((movie: Movie) => {
+        setMainMovie(movie);
+      });
+    } else {
+      console.log(props.match.params.filmName);
+      getMoviesByTItle(props.match.params.filmName)
+        .then((movies: any) => getMoviesById(movies[0].id))
+        .then((movie: Movie) => {
+          setMainMovie(movie);
+        });
+    }
+  }, [props.movie]);
+  useEffect(() => {
+    let directorName = mainMovie?.crew?.find(
+      (person: any) => person.job === 'Director'
+    )?.name;
+    if (directorName) {
+      getMoviesByDirectorName(directorName).then((movies: Movie[]) => {
+        console.log('movies by director', directorName, movies);
+        setMovies(movies);
+      });
+    }
+  }, [mainMovie]);
+  return (
+    <>
+      <Header barHidden={true}>
+        <MovieDescription movie={mainMovie} />
+      </Header>
+      <main className={style.main}>
+        {movies.length ? (
+          <>
+            <ListSort movies={movies} setMovies={setMovies} />
+            <ListMovieCards movies={movies} setMovie={props.setMovie} />
+          </>
+        ) : (
+          <div className={style['mock-list']}>No films found</div>
+        )}
+      </main>
+    </>
+  );
+};
+export const AboutPageWithRouter = withRouter(AboutPage);

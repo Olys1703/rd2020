@@ -1,6 +1,7 @@
 import React from 'react';
-export const CnxtSearchToCards = React.createContext({
-  findMovies: (searchProps: { name: string; type: string }) => {},
-  sortMovies: (sortKey: string) => {},
+import { Movie } from './types/Movie';
+export const CnxtApp = React.createContext({
+  setMoviesOnload: (moviesOnload: boolean) => {},
+  setMovie: (movie: Movie) => {},
 });
-CnxtSearchToCards.displayName = 'Stream from search to cards';
+CnxtApp.displayName = 'App props';

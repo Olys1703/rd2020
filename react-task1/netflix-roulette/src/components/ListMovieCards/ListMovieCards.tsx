@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieCard } from '../MovieCard/MovieCard';
+import { MovieCardWithRouter } from '../MovieCard/MovieCard';
 import style from './listMovieCards.module.scss';
 import { Movie } from '../../common/types/Movie';
 // type Movie = {
@@ -11,6 +11,7 @@ import { Movie } from '../../common/types/Movie';
 // };
 interface Movies {
   movies: Movie[];
+  setMovie: (movie: Movie) => void;
 }
 export const ListMovieCards: React.FC<Movies> = (props) => {
   //const cardsClassName: string = 'card-container'
@@ -18,7 +19,11 @@ export const ListMovieCards: React.FC<Movies> = (props) => {
   return (
     <section className={style.cards}>
       {props.movies.map((movie: Movie) => (
-        <MovieCard key={movie.id} {...movie} />
+        <MovieCardWithRouter
+          key={movie.id}
+          movie={movie}
+          setMovie={props.setMovie}
+        />
       ))}
     </section>
   );

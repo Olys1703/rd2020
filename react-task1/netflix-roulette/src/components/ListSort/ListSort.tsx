@@ -2,14 +2,6 @@ import React from 'react';
 //import type { Movie } from '../../common/types/Movie';
 import style from './listSort.module.scss';
 import { Movie } from '../../common/types/Movie';
-import { CnxtSearchToCards } from '../../common/context';
-// type Movie = {
-//   Title: string;
-//   Year: string;
-//   imdbID: string;
-//   Type: string;
-//   Poster: string;
-// };
 
 export default class ListSort extends React.Component<{
   movies: Movie[];

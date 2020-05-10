@@ -1,88 +1,57 @@
 import React, { FormEvent, useState, ChangeEvent, useEffect } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import style from './search.module.scss';
 import { Movie } from '../../common/types/Movie';
-import { CnxtSearchToCards } from '../../common/context';
-import { ApiData } from './ApiData';
+import getMoviesByDirectorName from '../API/getMoviesByDirectorName';
+import getMoviesByTItle from '../API/getMoviesByTItle';
 
-export const Search: React.FC<{
+interface ISearch extends RouteComponentProps<{ query: string }> {
   setMovies: (movies: Movie[]) => void;
-}> = (props) => {
-  const [movieName, setMovieName] = useState<string>('');
+}
+
+const Search: React.FC<ISearch> /*{
+  setMovies: (movies: Movie[]) => void;
+}>*/ = (
+  props
+) => {
+  const [movieName, setMovieName] = useState<{ name: string }>();
   const [inputValue, setInputValue] = useState<string>('');
   const [searchProps, setSearchProps] = useState<string>('movie');
-  const genres = ApiData.genres;
-  // function submitHandler(event: FormEvent) {
-  //   event.preventDefault();
-  //   setMovieName(inputValue);
-  // }
-  function setReleaseYear(movies: any) {
-    return movies.map((movie: any) => {
-      let releaseDate = new Date(movie.release_date);
-      movie.release_year = releaseDate.getFullYear();
-      movie.genres = subtitleGenre(movie.genre_ids);
-      return movie;
-    });
-  }
-  function findMovies(searchProps: { name: string; type: string }) {
-    const apiUrl = ApiData.url;
-    const apiKey = ApiData.key;
-    if (searchProps.type === 'person') {
-      fetch(
-        apiUrl +
-          'search/' +
-          searchProps.type +
-          `?api_key=${apiKey}&query=${searchProps.name}`
-      )
-        .then((data) => data.json())
-        .then((json) => {
-          return json.results[0].id;
-        })
-        .then((id) =>
-          fetch(
-            apiUrl + 'person/' + id + '/combined_credits' + `?api_key=${apiKey}`
-          )
-        )
-        .then((data) => data.json())
-        .then((json) => {
-          let movies = setReleaseYear(json.crew);
-          console.log(movies);
-          props.setMovies(
-            movies.filter((movie: any) => movie.job === 'Director')
-          );
-        });
-    }
-    if (searchProps.type === 'movie') {
-      fetch(
-        apiUrl +
-          'search/' +
-          searchProps.type +
-          `?api_key=${apiKey}&query=${searchProps.name}`
-      )
-        .then((data) => data.json())
-        .then((json) => {
-          let movies = setReleaseYear(json.results);
-          console.log(movies);
-          props.setMovies(movies);
-        });
-    }
-  }
-  function subtitleGenre(geners: number[]) {
-    return geners.map((genre) => {
-      return genres.find((item) => item.id === genre);
-    });
-  }
+  let query = props.match.params.query ? props.match.params.query : '';
+
   useEffect(() => {
-    if (movieName === '') {
+    setInputValue(query);
+    setMovieName({ name: query });
+  }, []);
+  useEffect(() => {
+    //console.log(query);
+    if (inputValue === '') {
       return;
     }
-    findMovies({ name: inputValue, type: searchProps });
+    if (searchProps === 'movie') {
+      getMoviesByTItle(inputValue).then((movies: any) => {
+        props.setMovies(movies);
+      });
+    }
+    if (searchProps === 'person') {
+      getMoviesByDirectorName(inputValue).then((movies: any) => {
+        props.setMovies(movies);
+      });
+    }
   }, [movieName]);
+
   return (
     <form
       className={style.search}
-      onSubmit={(event: FormEvent) => {
+      onSubmit={(event: FormEvent | KeyboardEvent) => {
         event.preventDefault();
-        setMovieName(inputValue);
+        if (props.location.pathname === '/') {
+          props.history.push('search/');
+          props.history.push(inputValue);
+        } else {
+          props.history.replace(inputValue);
+        }
+        setMovieName({ name: inputValue });
         //value.findMovies({ name: inputValue, type: searchProps });
       }}
     >
@@ -94,6 +63,8 @@ export const Search: React.FC<{
         }}
         id='searchControl'
         type='text'
+        required
+        value={inputValue}
       />
       <label htmlFor='searchControl'></label>
       <div>
@@ -106,7 +77,7 @@ export const Search: React.FC<{
           onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
             setSearchProps('movie');
-            setMovieName('');
+            //setMovieName('');
           }}
         >
           TITLE
@@ -119,7 +90,7 @@ export const Search: React.FC<{
           onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
             setSearchProps('person');
-            setMovieName('');
+            //setMovieName('');
           }}
         >
           DIRECTOR
@@ -134,3 +105,4 @@ export const Search: React.FC<{
     </form>
   );
 };
+export const SearchWithRouter = withRouter(Search);

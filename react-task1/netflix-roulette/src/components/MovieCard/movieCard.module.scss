@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   width: 25%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 .poster {
   height: 450px;
@@ -10,6 +12,7 @@
   object-fit: cover;
 }
 .poster-wrapper {
+  margin: auto;
   border-radius: 8px;
   overflow: hidden;
   height: 450px;

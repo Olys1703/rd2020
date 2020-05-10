@@ -1,4 +1,4 @@
-export const ApiData = {
+const API_DATA = {
   genres: [
     { id: 28, name: 'Action' },
     { id: 12, name: 'Adventure' },
@@ -23,3 +23,5 @@ export const ApiData = {
   key: '9883bd1665c4884113e0eeb2e7d9efea',
   url: 'https://api.themoviedb.org/3/',
 };
+
+export default API_DATA;
