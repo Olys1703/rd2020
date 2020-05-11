@@ -39,4 +39,20 @@
   font-size: 20px;
   color: $text-secondary;
   background-color: $light-color;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.favorite-btn {
+  height: 40px;
+  width: 140px;
+  font-size: 20px;
+  float: right;
+  background-color: $secondary-color;
+  color: $text-primary;
+  margin: 0 10px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
 }

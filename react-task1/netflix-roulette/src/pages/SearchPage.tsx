@@ -6,6 +6,8 @@ import { ListMovieCards } from '../../src/components/ListMovieCards/ListMovieCar
 import { Movie } from '../common/types/Movie';
 import { SearchWithRouter } from '../components/Search/Search';
 import style from './searchPage.module.scss';
+import { CnxtApp } from '../common/context';
+import Loader from '../components/Loader/Loader';
 
 export default class SearchPage extends React.Component<
   { setMovie: (movie: Movie) => void },
@@ -23,24 +25,30 @@ export default class SearchPage extends React.Component<
   }
   render() {
     return (
-      <>
-        <Header barHidden={false}>
-          <SearchWithRouter setMovies={this.setMovies} />
-        </Header>
-        <main className={style.main}>
-          {this.state.movies.length ? (
-            <>
-              <ListSort movies={this.state.movies} setMovies={this.setMovies} />
-              <ListMovieCards
-                movies={this.state.movies}
-                setMovie={this.props.setMovie}
+      <CnxtApp.Consumer>
+        {(value) => (
+          <>
+            <Header serchLinkHidden={false} favoriteLinkHidden={false}>
+              <SearchWithRouter
+                setMovies={this.setMovies}
+                setListOnload={value.setListOnload}
               />
-            </>
-          ) : (
-            <div className={style['mock-list']}>No films found</div>
-          )}
-        </main>
-      </>
+            </Header>
+            <main className={style.main}>
+              {value.listOnload ? (
+                <ListMovieCards
+                  setListOnload={value.setListOnload}
+                  movies={this.state.movies}
+                  setMovie={this.props.setMovie}
+                  setMovies={this.setMovies}
+                />
+              ) : (
+                <Loader />
+              )}
+            </main>
+          </>
+        )}
+      </CnxtApp.Consumer>
     );
   }
 }

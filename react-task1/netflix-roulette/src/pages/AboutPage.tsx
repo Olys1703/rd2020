@@ -13,18 +13,23 @@ import getMoviesById from '../components/API/getMovieById';
 import getMoviesByTItle from '../components/API/getMoviesByTItle';
 import getCreditsByMovieId from '../components/API/getCreditsByMovieId';
 import getMoviesByDirectorName from '../components/API/getMoviesByDirectorName';
+import { CnxtApp } from '../common/context';
+import Loader from '../components/Loader/Loader';
+
 interface IAboutPage extends RouteComponentProps<{ filmName: string }> {
   movie: Movie | undefined;
   setMovie: (movie: Movie) => void;
+  setListOnload: (listOnload: boolean) => void;
 }
 const AboutPage: React.FC<IAboutPage> = (props) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [mainMovie, setMainMovie] = useState<Movie>();
-  let tempMainMovie: Movie;
   useEffect(() => {
+    props.setListOnload(false);
     if (props.movie) {
       getMoviesById(props.movie.id).then((movie: Movie) => {
         setMainMovie(movie);
+        props.setListOnload(true);
       });
     } else {
       console.log(props.match.params.filmName);
@@ -32,6 +37,7 @@ const AboutPage: React.FC<IAboutPage> = (props) => {
         .then((movies: any) => getMoviesById(movies[0].id))
         .then((movie: Movie) => {
           setMainMovie(movie);
+          props.setListOnload(true);
         });
     }
   }, [props.movie]);
@@ -48,14 +54,36 @@ const AboutPage: React.FC<IAboutPage> = (props) => {
   }, [mainMovie]);
   return (
     <>
-      <Header barHidden={true}>
+      <Header serchLinkHidden={false} favoriteLinkHidden={false}>
         <MovieDescription movie={mainMovie} />
       </Header>
       <main className={style.main}>
         {movies.length ? (
           <>
-            <ListSort movies={movies} setMovies={setMovies} />
-            <ListMovieCards movies={movies} setMovie={props.setMovie} />
+            <CnxtApp.Consumer>
+              {(value) =>
+                value.listOnload ? (
+                  <>
+                    <div className={style['movies-by']}>
+                      Movies by{' '}
+                      {mainMovie?.crew
+                        ?.filter((person) => person.job === 'Director')
+                        .map((person) => person.name)
+                        .join(', ')}
+                      {':'}
+                    </div>
+                    <ListMovieCards
+                      movies={movies}
+                      setMovie={props.setMovie}
+                      setListOnload={value.setListOnload}
+                      setMovies={setMovies}
+                    />
+                  </>
+                ) : (
+                  <Loader />
+                )
+              }
+            </CnxtApp.Consumer>
           </>
         ) : (
           <div className={style['mock-list']}>No films found</div>

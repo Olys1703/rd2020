@@ -6,6 +6,7 @@ function getCreditsByMovieId(movieId: number): any {
   return fetch(
     apiUrl + `movie/${movieId}/credits` + `?api_key=${apiKey}`
   ).then((data) => data.json());
+
   // .then((json) => {
   //   return new Promise((resolve, reject) => {
   //     let movie = setReleaseYear([json])[0];

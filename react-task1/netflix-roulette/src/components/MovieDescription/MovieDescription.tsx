@@ -13,28 +13,33 @@ export default class MovieDescription extends React.Component<
       imgError: false,
     };
   }
+  componentWillReceiveProps() {
+    this.setState({ imgError: false });
+  }
   render() {
     return (
       <>
         {this.props.movie ? (
           <div className={style.movie}>
-            {this.state.imgError ? (
-              <span className={style['mock-poster']}>
-                <p>No poster found</p>
-              </span>
-            ) : (
-              <img
-                className={style.poster}
-                src={
-                  'https://image.tmdb.org/t/p/original' +
-                  this.props.movie.poster_path
-                }
-                alt='poster'
-                onError={() => {
-                  this.setState({ imgError: true });
-                }}
-              />
-            )}
+            <div className={style['poster-wrapper']}>
+              {this.state.imgError ? (
+                <span className={style['mock-poster']}>
+                  <p>No poster found</p>
+                </span>
+              ) : (
+                <img
+                  className={style.poster}
+                  src={
+                    'https://image.tmdb.org/t/p/original' +
+                    this.props.movie.poster_path
+                  }
+                  alt='poster'
+                  onError={() => {
+                    this.setState({ imgError: true });
+                  }}
+                />
+              )}
+            </div>
             <div className={style.description}>
               <div className={style.header}>
                 <h2 className={style.title}>{this.props.movie?.title}</h2>

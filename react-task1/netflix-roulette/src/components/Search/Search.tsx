@@ -7,6 +7,7 @@ import getMoviesByTItle from '../API/getMoviesByTItle';
 
 interface ISearch extends RouteComponentProps<{ query: string }> {
   setMovies: (movies: Movie[]) => void;
+  setListOnload: (listOnload: boolean) => void;
 }
 
 const Search: React.FC<ISearch> /*{
@@ -16,7 +17,7 @@ const Search: React.FC<ISearch> /*{
 ) => {
   const [movieName, setMovieName] = useState<{ name: string }>();
   const [inputValue, setInputValue] = useState<string>('');
-  const [searchProps, setSearchProps] = useState<string>('movie');
+  const [searchProps, setSearchProps] = useState<string>('title');
   let query = props.match.params.query ? props.match.params.query : '';
 
   useEffect(() => {
@@ -28,14 +29,17 @@ const Search: React.FC<ISearch> /*{
     if (inputValue === '') {
       return;
     }
-    if (searchProps === 'movie') {
+    props.setListOnload(false);
+    if (searchProps === 'title') {
       getMoviesByTItle(inputValue).then((movies: any) => {
         props.setMovies(movies);
+        props.setListOnload(true);
       });
     }
-    if (searchProps === 'person') {
+    if (searchProps === 'director') {
       getMoviesByDirectorName(inputValue).then((movies: any) => {
         props.setMovies(movies);
+        props.setListOnload(true);
       });
     }
   }, [movieName]);
@@ -65,6 +69,7 @@ const Search: React.FC<ISearch> /*{
         type='text'
         required
         value={inputValue}
+        placeholder={`Search movie by ${searchProps}`}
       />
       <label htmlFor='searchControl'></label>
       <div>
@@ -72,11 +77,11 @@ const Search: React.FC<ISearch> /*{
         <button
           className={[
             style.btn,
-            searchProps === 'movie' ? style.active : '',
+            searchProps === 'title' ? style.active : '',
           ].join(' ')}
           onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
-            setSearchProps('movie');
+            setSearchProps('title');
             //setMovieName('');
           }}
         >
@@ -85,11 +90,11 @@ const Search: React.FC<ISearch> /*{
         <button
           className={[
             style.btn,
-            searchProps === 'person' ? style.active : '',
+            searchProps === 'director' ? style.active : '',
           ].join(' ')}
           onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
-            setSearchProps('person');
+            setSearchProps('director');
             //setMovieName('');
           }}
         >

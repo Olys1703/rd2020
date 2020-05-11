@@ -1,9 +1,11 @@
 .main {
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.mock-list {
+.movies-by {
   text-align: center;
-  margin-top: 40px;
-  font-size: 54px;
-  color: #afb3afa6;
+  font-size: 2rem;
 }

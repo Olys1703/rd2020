@@ -6,10 +6,16 @@
   padding: 15px;
   box-sizing: border-box;
 }
+.card {
+  position: relative;
+}
 .poster {
   height: 450px;
   width: 300px;
   object-fit: cover;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .poster-wrapper {
   margin: auto;
@@ -21,6 +27,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .mock-poster {
   height: 200px;
@@ -36,12 +45,30 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .release-date {
+  text-align: center;
+  color: $text-primary;
+  background-color: $secondary-color;
   display: inline-block;
   min-width: 40px;
   min-height: 1rem;
   padding: 2px;
   border: 1px solid $secondary-color;
   border-radius: 4px;
+}
+.title {
+  margin: 10px 0 0 0;
+}
+.title-wrapper {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.genres {
+  margin: 0 10px;
 }
