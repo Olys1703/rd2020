@@ -1,13 +1,18 @@
 @import '../../common/styles/vars.scss';
+
 .footer {
   padding: 20px 0;
+  font-size: 1.2rem;
   background-color: $primary-color;
 }
+
 .container {
-  margin: auto;
   width: 80%;
+  margin: auto;
 }
+
 .brand {
   color: $text-secondary;
   text-decoration: none;
+  font-weight: 700;
 }

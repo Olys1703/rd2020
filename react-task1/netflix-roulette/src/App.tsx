@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Footer } from './components/Footer/Footer';
-import SearchPage from './pages/SearchPage';
-import { AboutPageWithRouter } from './pages/AboutPage';
+import SearchPage from './pages/Search/SearchPage';
+import { AboutPageWithRouter } from './pages/About/AboutPage';
 import style from './app.module.scss';
 import { Movie } from './common/types/Movie';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import FavoriteMoviesPage from './pages/FavoriteMoviesPage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import FavoriteMoviesPage from './pages/Favorite/FavoriteMoviesPage';
 import { CnxtApp } from './common/context';
 
 function App() {

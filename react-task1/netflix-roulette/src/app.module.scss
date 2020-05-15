@@ -1,8 +1,8 @@
 .wrapper {
-  min-height: 100vh;
   display: flex;
+  text-align: left;
+  background-color: #fff;
+  min-height: 100vh;
   justify-content: space-between;
   flex-direction: column;
-  background-color: #ffffff;
-  text-align: left;
 }

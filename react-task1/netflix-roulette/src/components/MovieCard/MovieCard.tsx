@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import style from './movieCard.module.scss';
 import { Movie } from '../../common/types/Movie';
-import {
-  withRouter,
-  RouteComponentProps,
-  Link,
-  generatePath,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FavoriteMark from '../FavoriteMark/FavoriteMark';
 
-interface IMovieCard extends RouteComponentProps {
+interface IMovieCard {
   movie: Movie;
   setMovie: (movie: Movie) => void;
 }
@@ -19,13 +14,12 @@ const MovieCard: React.FC<IMovieCard> = (props) => {
   return (
     <div className={style['card-wrapper']}>
       <article className={style.card}>
-        <div
+        <Link
           className={style['poster-wrapper']}
           onClick={() => {
-            //localStorage.setItem('movie', JSON.stringify(props.movie));
             props.setMovie(props.movie);
-            props.history.replace(`/film/${props.movie.title}`);
           }}
+          to={`/film/${props.movie.title}`}
         >
           {imgError ? (
             <span className={style['mock-poster']}>
@@ -34,16 +28,14 @@ const MovieCard: React.FC<IMovieCard> = (props) => {
           ) : (
             <img
               className={style.poster}
-              src={
-                'https://image.tmdb.org/t/p/original' + props.movie.poster_path
-              }
+              src={props.movie.poster_path}
               alt='poster'
               onError={() => {
                 setImgError(true);
               }}
             />
           )}
-        </div>
+        </Link>
         <div className={style['title-wrapper']}>
           <h3 className={style.title}>
             {props.movie.title ? props.movie.title : 'no title found'}
@@ -54,10 +46,10 @@ const MovieCard: React.FC<IMovieCard> = (props) => {
           {props.movie.release_year ? props.movie.release_year : ' - '}
         </span>
         <span className={style.genres}>
-          {props.movie.genres
+          {props.movie.genres?.length
             ? props.movie.genres
                 .map((genre: { id: number; name: string }) => {
-                  return genre.name;
+                  return genre ? genre.name : null;
                 })
                 .join(', ')
             : ''}
@@ -66,4 +58,4 @@ const MovieCard: React.FC<IMovieCard> = (props) => {
     </div>
   );
 };
-export const MovieCardWithRouter = withRouter(MovieCard);
+export default MovieCard;

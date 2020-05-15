@@ -10,22 +10,17 @@ interface ISearch extends RouteComponentProps<{ query: string }> {
   setListOnload: (listOnload: boolean) => void;
 }
 
-const Search: React.FC<ISearch> /*{
-  setMovies: (movies: Movie[]) => void;
-}>*/ = (
-  props
-) => {
+const Search: React.FC<ISearch> = (props) => {
   const [movieName, setMovieName] = useState<{ name: string }>();
   const [inputValue, setInputValue] = useState<string>('');
   const [searchProps, setSearchProps] = useState<string>('title');
-  let query = props.match.params.query ? props.match.params.query : '';
 
   useEffect(() => {
+    let query = props.match.params.query ? props.match.params.query : '';
     setInputValue(query);
     setMovieName({ name: query });
   }, []);
   useEffect(() => {
-    //console.log(query);
     if (inputValue === '') {
       return;
     }
@@ -49,14 +44,11 @@ const Search: React.FC<ISearch> /*{
       className={style.search}
       onSubmit={(event: FormEvent | KeyboardEvent) => {
         event.preventDefault();
-        if (props.location.pathname === '/') {
-          props.history.push('search/');
-          props.history.push(inputValue);
-        } else {
-          props.history.replace(inputValue);
-        }
+        console.log(props);
+
+        props.history.push(`/search/${inputValue}`);
+
         setMovieName({ name: inputValue });
-        //value.findMovies({ name: inputValue, type: searchProps });
       }}
     >
       <h3>FIND YOUR MOVIE</h3>
@@ -95,7 +87,6 @@ const Search: React.FC<ISearch> /*{
           onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
             setSearchProps('director');
-            //setMovieName('');
           }}
         >
           DIRECTOR

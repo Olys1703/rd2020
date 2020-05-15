@@ -1,12 +1,13 @@
 .cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   width: 90%;
   margin: auto;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
+
 .mock-list {
-  text-align: center;
   font-size: 54px;
+  text-align: center;
   color: #afb3afa6;
 }

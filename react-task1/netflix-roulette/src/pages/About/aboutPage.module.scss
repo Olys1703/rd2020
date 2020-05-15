@@ -1,11 +1,18 @@
 .main {
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .movies-by {
-  text-align: center;
   font-size: 2rem;
+  text-align: center;
+}
+
+.mock-list {
+  font-size: 54px;
+  text-align: center;
+  color: #afb3afa6;
 }

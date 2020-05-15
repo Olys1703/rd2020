@@ -29,10 +29,7 @@ export default class MovieDescription extends React.Component<
               ) : (
                 <img
                   className={style.poster}
-                  src={
-                    'https://image.tmdb.org/t/p/original' +
-                    this.props.movie.poster_path
-                  }
+                  src={this.props.movie.poster_path}
                   alt='poster'
                   onError={() => {
                     this.setState({ imgError: true });
@@ -55,12 +52,7 @@ export default class MovieDescription extends React.Component<
               </div>
               <div className={style.overview}>{this.props.movie.overview}</div>
               <div className={style.director}>
-                Director:{' '}
-                {this.props.movie.crew
-                  ?.filter((person) => person.job === 'Director')
-                  .map((person) => person.name)
-                  .join(', ')}
-                {'.'}
+                Director: {this.props.movie.director}.
               </div>
               <div className={style.cast}>
                 Cast:{' '}

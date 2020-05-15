@@ -1,4 +1,7 @@
 const API_DATA = {
+  key: '9883bd1665c4884113e0eeb2e7d9efea',
+  url: 'https://api.themoviedb.org/3/',
+  posterPath: 'https://image.tmdb.org/t/p/original',
   genres: [
     { id: 28, name: 'Action' },
     { id: 12, name: 'Adventure' },
@@ -20,8 +23,6 @@ const API_DATA = {
     { id: 10752, name: 'War' },
     { id: 37, name: 'Western' },
   ],
-  key: '9883bd1665c4884113e0eeb2e7d9efea',
-  url: 'https://api.themoviedb.org/3/',
 };
 
 export default API_DATA;

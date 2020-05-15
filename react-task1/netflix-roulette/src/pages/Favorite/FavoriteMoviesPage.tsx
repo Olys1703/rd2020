@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Header } from '../components/Header/Header';
-import ListSort from '../components/ListSort/ListSort';
-import { ListMovieCards } from '../../src/components/ListMovieCards/ListMovieCards';
-import { SearchWithRouter } from '../components/Search/Search';
+import { Header } from '../../components/Header/Header';
+import { ListMovieCards } from '../../components/ListMovieCards/ListMovieCards';
 import style from './favoriteMoviesPage.module.scss';
-import { CnxtApp } from '../common/context';
-import Loader from '../components/Loader/Loader';
+import { CnxtApp } from '../../common/context';
 
 const FavoriteMoviesPage: React.FC = () => {
   const sFavoriteMoviesId = localStorage.getItem('favoriteMovies');
@@ -27,7 +24,7 @@ const FavoriteMoviesPage: React.FC = () => {
   );
   return (
     <>
-      <Header serchLinkHidden={false} favoriteLinkHidden={false}>
+      <Header serchLinkHidden={false} favoriteLinkHidden={true}>
         <div className={style.title}>YOUR FAVORITE MOVIES</div>
       </Header>
       <main className={style.main}>

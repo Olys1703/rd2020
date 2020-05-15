@@ -1,33 +1,43 @@
 @import '../../common/styles/vars.scss';
+
 .search {
   color: $text-primary;
 }
+
 .control {
-  padding: 0 10px;
-  box-sizing: border-box;
-  color: $text-primary;
   width: 100%;
+  padding: 0 10px;
+  line-height: 2rem;
+  color: $text-primary;
   background-color: rgba(0, 0, 0, 0.8);
   border: none;
+  box-sizing: border-box;
   border-bottom: 3px solid $secondary-color;
-  line-height: 2rem;
   margin-bottom: 20px;
 }
+
 .submit {
   float: right;
 }
+
 .btn {
   margin: 10px;
   padding: 10px 15px;
-  font-weight: 700;
   font-size: 1rem;
-  background-color: $primary-color;
   color: $text-primary;
+  background-color: $primary-color;
   border: none;
+  font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
+
 .active {
   background-color: $secondary-color;
 }
+
 .lg {
   padding: 15px 60px;
 }
