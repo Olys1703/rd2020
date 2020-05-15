@@ -1,18 +1,24 @@
 import React from 'react';
 import style from './listSort.module.scss';
 import { Movie } from '../../common/types/Movie';
+import { connect } from 'react-redux';
+import { setMovies } from '../../redux/actions';
 
-export default class ListSort extends React.Component<
+class ListSort extends React.Component<any, any>
+/*<
   {
     movies: Movie[];
     setMovies: (movies: Movie[]) => void;
   },
   { rise: boolean | null; sortKey: string | null }
-> {
-  constructor(props: {
+> */
+{
+  constructor(
+    props: any /*{
     movies: Movie[];
     setMovies: (movies: Movie[]) => void;
-  }) {
+  }*/
+  ) {
     super(props);
     this.state = {
       rise: null,
@@ -21,7 +27,7 @@ export default class ListSort extends React.Component<
   }
   sortMovies(sortKey: string, rise: boolean) {
     const movies = this.props.movies.concat();
-    movies.sort((a, b) => {
+    movies.sort((a: any, b: any) => {
       return rise ? a[sortKey] - b[sortKey] : b[sortKey] - a[sortKey];
     });
     console.log(movies);
@@ -103,3 +109,10 @@ export default class ListSort extends React.Component<
     );
   }
 }
+const mapDispatchToProps = {
+  setMovies,
+};
+const mapStateToProps = (state: any) => ({
+  movies: state.movies.movies,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ListSort);

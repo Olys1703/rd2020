@@ -4,6 +4,7 @@ import style from './search.module.scss';
 import { Movie } from '../../common/types/Movie';
 import getMoviesByDirectorName from '../API/getMoviesByDirectorName';
 import getMoviesByTItle from '../API/getMoviesByTItle';
+import { connect } from 'react-redux';
 
 interface ISearch extends RouteComponentProps<{ query: string }> {
   setMovies: (movies: Movie[]) => void;

@@ -3,6 +3,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import style from './listMovieCards.module.scss';
 import { Movie } from '../../common/types/Movie';
 import ListSort from '../ListSort/ListSort';
+import { connect } from 'react-redux';
 
 interface Movies {
   movies: Movie[];
@@ -10,13 +11,13 @@ interface Movies {
   setListOnload: (listOnload: boolean) => void;
   setMovies: (movies: Movie[]) => void;
 }
-export const ListMovieCards: React.FC<Movies> = (props) => {
+export const ListMovieCards: React.FC<any> /*<Movies>*/ = (props) => {
   return props.movies.length ? (
     <>
-      <ListSort movies={props.movies} setMovies={props.setMovies} />
+      <ListSort />
       <section className={style.cards}>
         {props.movies.map((movie: Movie) => (
-          <MovieCard key={movie.id} movie={movie} setMovie={props.setMovie} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </section>
     </>
@@ -24,3 +25,8 @@ export const ListMovieCards: React.FC<Movies> = (props) => {
     <div className={style['mock-list']}>No films found</div>
   );
 };
+
+const mapStateToProps = (state: any) => ({
+  movies: state.movies.movies,
+});
+export default connect(mapStateToProps, null)(ListMovieCards);

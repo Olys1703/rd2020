@@ -1,13 +1,16 @@
 import React from 'react';
 import { Movie } from '../../common/types/Movie';
 import style from './movieDescription.module.scss';
-export default class MovieDescription extends React.Component<
-  {
-    movie: Movie | undefined;
-  },
-  { imgError: boolean }
-> {
-  constructor(props: { movie: Movie | undefined }) {
+import { connect } from 'react-redux';
+export class MovieDescription extends React.Component<any, any>
+// <
+//   {
+//     movie: Movie | undefined;
+//   },
+//   { imgError: boolean }
+// >
+{
+  constructor(props: any /*{ movie: Movie | undefined }*/) {
     super(props);
     this.state = {
       imgError: false,
@@ -58,7 +61,7 @@ export default class MovieDescription extends React.Component<
                 Cast:{' '}
                 {this.props.movie.cast
                   ?.slice(0, 9)
-                  .map((person) => person.name)
+                  .map((person: any) => person.name)
                   .join(', ')}
                 {'.'}
               </div>
@@ -71,3 +74,9 @@ export default class MovieDescription extends React.Component<
     );
   }
 }
+
+const mapStateToProps = (state: any) => ({
+  movie: state.movies.selectedMovie,
+});
+
+export default connect(mapStateToProps, null)(MovieDescription);

@@ -3,13 +3,15 @@ import style from './movieCard.module.scss';
 import { Movie } from '../../common/types/Movie';
 import { Link } from 'react-router-dom';
 import FavoriteMark from '../FavoriteMark/FavoriteMark';
+import { connect } from 'react-redux';
+import { selectMovie } from '../../redux/actions';
 
 interface IMovieCard {
   movie: Movie;
   setMovie: (movie: Movie) => void;
 }
 
-const MovieCard: React.FC<IMovieCard> = (props) => {
+const MovieCard: React.FC<any> /*<IMovieCard> */ = (props) => {
   const [imgError, setImgError] = useState<boolean>(false);
   return (
     <div className={style['card-wrapper']}>
@@ -17,7 +19,8 @@ const MovieCard: React.FC<IMovieCard> = (props) => {
         <Link
           className={style['poster-wrapper']}
           onClick={() => {
-            props.setMovie(props.movie);
+            //props.setMovie(props.movie);
+            props.selectMovie(props.movie);
           }}
           to={`/film/${props.movie.title}`}
         >
@@ -58,4 +61,7 @@ const MovieCard: React.FC<IMovieCard> = (props) => {
     </div>
   );
 };
-export default MovieCard;
+const mapDispatchToProps = {
+  selectMovie,
+};
+export default connect(null, mapDispatchToProps)(MovieCard);
