@@ -3,6 +3,6 @@
 ### codewars: [Olys1703](https://www.codewars.com/users/Olys1703)
 
 ## Completed tasks:
-### Coding Meetup
-### Job Matching
-### Other
+:white_check_mark: Coding Meetup
+:white_check_mark: Job Matching
+:white_check_mark: Other

@@ -1,0 +1,60 @@
+:root{
+  --widthRect: 400px;
+  --heightRect: 100px;
+  --widthCircle: 20px;
+  --heightCircle: 20px;
+  --topCircle: calc(0px - var(--heightCircle) / 2);
+  --leftCircle: calc(0px - var(--widthCircle) / 2);
+}
+.wrapper {
+  width: 400px;
+  height: 100px;
+  margin: auto;
+  margin-top: 40px;
+}
+.rect {
+  height: var(--heightRect);
+  width: var(--widthRect);
+  border: 1px solid black;
+  position: absolute;
+  box-sizing: border-box;
+}
+.circle {
+  height: var(--heightCircle);
+  width: var(--widthCircle);
+  position: relative;
+  top: var(--topCircle);
+  left: var(--leftCircle);
+  border-radius: 50%;
+  background-color: black;
+}
+.circle.css-animation {
+  animation-name: circleMove;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+}
+
+@keyframes circleMove {
+  0% {
+    top: var(--topCircle);
+    left: var(--leftCircle);
+  }
+  25% {
+    top: var(--topCircle);
+    left: calc(var(--widthRect) + var(--leftCircle));
+  }
+  50% {
+    top: calc(var(--heightRect) + var(--topCircle));
+    left: calc(var(--widthRect) + var(--leftCircle));
+  }
+  75% {
+    top: calc(var(--heightRect) + var(--topCircle));
+    left: var(--leftCircle);
+  }
+  100% {
+    top: var(--topCircle);
+    left: var(--leftCircle);
+  }
+}
