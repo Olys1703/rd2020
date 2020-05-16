@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Header } from '../../components/Header/Header';
-import { ListMovieCards } from '../../components/ListMovieCards/ListMovieCards';
+import ListMovieCards from '../../components/ListMovieCards/ListMovieCards';
 import style from './favoriteMoviesPage.module.scss';
-import { CnxtApp } from '../../common/context';
+import { useDispatch } from 'react-redux';
+import { setMovies } from '../../redux/actions';
 
 const FavoriteMoviesPage: React.FC = () => {
   const sFavoriteMoviesId = localStorage.getItem('favoriteMovies');
   const favoriteMoviesId = sFavoriteMoviesId
     ? JSON.parse(sFavoriteMoviesId)
     : [];
-  const favoriteMoviesFromLS = favoriteMoviesId.length
+  const favoriteMovies = favoriteMoviesId.length
     ? favoriteMoviesId.reduce((movies: any, movieId: any) => {
         const movie = localStorage.getItem(movieId);
         if (movie) {
@@ -18,10 +19,11 @@ const FavoriteMoviesPage: React.FC = () => {
         return movies;
       }, [])
     : [];
+  const depatch = useDispatch();
+  useEffect(() => {
+    depatch(setMovies(favoriteMovies));
+  }, []);
 
-  const [favoriteMovies, setFavoriteMovies] = useState<any>(
-    favoriteMoviesFromLS
-  );
   return (
     <>
       <Header serchLinkHidden={false} favoriteLinkHidden={true}>
@@ -29,18 +31,7 @@ const FavoriteMoviesPage: React.FC = () => {
       </Header>
       <main className={style.main}>
         {favoriteMovies.length ? (
-          <>
-            <CnxtApp.Consumer>
-              {(value) => (
-                <ListMovieCards
-                  movies={favoriteMovies}
-                  setMovie={() => {}}
-                  setListOnload={value.setListOnload}
-                  setMovies={setFavoriteMovies}
-                />
-              )}
-            </CnxtApp.Consumer>
-          </>
+          <ListMovieCards />
         ) : (
           <div className={style['mock-list']}>No films found</div>
         )}

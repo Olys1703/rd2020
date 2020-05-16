@@ -20,7 +20,6 @@ function getMoviesByDirectorName(directorName: string): any {
         movies = subtitleGenre(movies);
         movies = movies.filter((movie: any) => movie.job === 'Director');
         movies = setImgAPIPath(movies);
-        console.log(movies);
         resolve(movies);
       });
     });

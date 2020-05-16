@@ -1,57 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import style from './aboutPage.module.scss';
 import { Header } from '../../components/Header/Header';
 import ListMovieCards from '../../components/ListMovieCards/ListMovieCards';
 import { Movie } from '../../common/types/Movie';
-import style from './aboutPage.module.scss';
 import MovieDescription from '../../components/MovieDescription/MovieDescription';
-import '../../components/API/getMoviesByTItle';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import getMoviesById from '../../components/API/getMovieById';
-import getMoviesByTItle from '../../components/API/getMoviesByTItle';
-import getMoviesByDirectorName from '../../components/API/getMoviesByDirectorName';
-import { CnxtApp } from '../../common/context';
 import Loader from '../../components/Loader/Loader';
-import { connect } from 'react-redux';
-import { selectMovie, setMovies } from '../../redux/actions';
+import {
+  setMainMovie,
+  setMovies,
+  fetchMovie,
+  fetchMovies,
+} from '../../redux/actions';
 
 interface IAboutPage extends RouteComponentProps<{ filmName: string }> {
   movie: Movie | undefined;
   setMovie: (movie: Movie) => void;
   setListOnload: (listOnload: boolean) => void;
 }
-const AboutPage: React.FC<any> /*<IAboutPage>*/ = (props) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [mainMovie, setMainMovie] = useState<Movie>();
+const AboutPage: React.FC<any> = (props) => {
   useEffect(() => {
-    props.setListOnload(false);
     if (props.movie) {
-      getMoviesById(props.movie.id).then((movie: Movie) => {
-        //setMainMovie(movie);
-        //console.log('by id');
-        props.selectMovie(movie);
-        props.setListOnload(true);
-      });
+      props.fetchMovie(props.movie.id);
     } else {
-      getMoviesByTItle(props.match.params.filmName)
-        .then((movies: any) => getMoviesById(movies[0].id))
-        .then((movie: Movie) => {
-          //setMainMovie(movie);
-          //console.log('by title');
-          props.selectMovie(movie);
-          props.setListOnload(true);
-        });
-    }
-  }, []);
-  useEffect(() => {
-    let directorName = mainMovie?.director;
-    console.log('director: ', directorName, props.movie);
-    if (directorName) {
-      getMoviesByDirectorName(directorName).then((movies: Movie[]) => {
-        console.log('movies by director', directorName, movies);
-        props.setMovies(movies);
-      });
+      props.fetchMovie(props.match.params.filmName);
     }
   }, [props.movie]);
+  useEffect(() => {
+    let directorName = props.mainMovie?.director;
+    if (directorName) {
+      props.fetchMovies(directorName, 'director');
+    }
+  }, [props.mainMovie]);
   return (
     <>
       <Header serchLinkHidden={false} favoriteLinkHidden={false}>
@@ -59,35 +40,36 @@ const AboutPage: React.FC<any> /*<IAboutPage>*/ = (props) => {
       </Header>
       <main className={style.main}>
         <>
-          <CnxtApp.Consumer>
-            {(value) =>
-              value.listOnload ? (
-                <>
-                  {!!movies.length && (
-                    <div className={style['movies-by']}>
-                      Movies by {mainMovie?.director}:
-                    </div>
-                  )}
-                  <ListMovieCards />
-                </>
-              ) : (
-                <Loader />
-              )
-            }
-          </CnxtApp.Consumer>
+          {!props.loading ? (
+            <>
+              {!!props.movies.length && (
+                <div className={style['movies-by']}>
+                  Movies by {props.mainMovie?.director}:
+                </div>
+              )}
+              <ListMovieCards />
+            </>
+          ) : (
+            <Loader />
+          )}
         </>
       </main>
     </>
   );
 };
 const mapDispatchToProps = {
-  selectMovie,
+  setMainMovie,
   setMovies,
+  fetchMovie,
+  fetchMovies,
 };
 const mapStateToProps = (state: any) => ({
+  movies: state.movies.movies,
   movie: state.movies.selectedMovie,
+  mainMovie: state.movies.mainMovie,
+  loading: state.app.loading,
 });
-export const AboutPageWithRouter = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(withRouter(AboutPage));

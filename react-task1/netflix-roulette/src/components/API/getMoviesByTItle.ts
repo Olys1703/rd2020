@@ -10,10 +10,8 @@ function getMoviesByTitle(title: string): any {
     .then((json) => {
       return new Promise((resolve, reject) => {
         let movies = setReleaseYear(json.results);
-        console.log('title before genre', movies);
         movies = subtitleGenre(movies);
         movies = setImgAPIPath(movies);
-        console.log('title after genre', movies);
         resolve(movies);
       });
     });

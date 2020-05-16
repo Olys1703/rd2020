@@ -11,7 +11,7 @@ interface IMovieCard {
   setMovie: (movie: Movie) => void;
 }
 
-const MovieCard: React.FC<any> /*<IMovieCard> */ = (props) => {
+const MovieCard: React.FC<any> = (props) => {
   const [imgError, setImgError] = useState<boolean>(false);
   return (
     <div className={style['card-wrapper']}>
@@ -19,7 +19,6 @@ const MovieCard: React.FC<any> /*<IMovieCard> */ = (props) => {
         <Link
           className={style['poster-wrapper']}
           onClick={() => {
-            //props.setMovie(props.movie);
             props.selectMovie(props.movie);
           }}
           to={`/film/${props.movie.title}`}

@@ -11,7 +11,7 @@ interface Movies {
   setListOnload: (listOnload: boolean) => void;
   setMovies: (movies: Movie[]) => void;
 }
-export const ListMovieCards: React.FC<any> /*<Movies>*/ = (props) => {
+export const ListMovieCards: React.FC<any> = (props) => {
   return props.movies.length ? (
     <>
       <ListSort />

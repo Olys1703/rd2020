@@ -2,15 +2,8 @@ import React from 'react';
 import { Movie } from '../../common/types/Movie';
 import style from './movieDescription.module.scss';
 import { connect } from 'react-redux';
-export class MovieDescription extends React.Component<any, any>
-// <
-//   {
-//     movie: Movie | undefined;
-//   },
-//   { imgError: boolean }
-// >
-{
-  constructor(props: any /*{ movie: Movie | undefined }*/) {
+export class MovieDescription extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       imgError: false,
@@ -76,7 +69,7 @@ export class MovieDescription extends React.Component<any, any>
 }
 
 const mapStateToProps = (state: any) => ({
-  movie: state.movies.selectedMovie,
+  movie: state.movies.mainMovie,
 });
 
 export default connect(mapStateToProps, null)(MovieDescription);

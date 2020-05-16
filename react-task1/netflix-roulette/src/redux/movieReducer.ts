@@ -1,4 +1,4 @@
-import { SELECT_MOVIE, SET_LIST_ONLOAD, SET_MOVIES } from './types';
+import { SELECT_MOVIE, SET_MOVIES, SET_MAIN_MOVIE } from './types';
 const initialState = {
   movies: [],
   selectedMovie: undefined,
@@ -14,14 +14,11 @@ export const movieReducer = (
   switch (action.type) {
     case SELECT_MOVIE:
       return { ...state, selectedMovie: { ...action.payload } };
-      break;
     case SET_MOVIES:
       return { ...state, movies: action.payload.concat() };
-      break;
-    case SET_LIST_ONLOAD:
-      return { ...state, listOnload: action.payload };
+    case SET_MAIN_MOVIE:
+      return { ...state, mainMovie: { ...action.payload } };
     default:
       return state;
   }
-  return state;
 };

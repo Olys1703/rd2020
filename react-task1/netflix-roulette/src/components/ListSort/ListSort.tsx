@@ -1,24 +1,10 @@
 import React from 'react';
 import style from './listSort.module.scss';
-import { Movie } from '../../common/types/Movie';
 import { connect } from 'react-redux';
 import { setMovies } from '../../redux/actions';
 
-class ListSort extends React.Component<any, any>
-/*<
-  {
-    movies: Movie[];
-    setMovies: (movies: Movie[]) => void;
-  },
-  { rise: boolean | null; sortKey: string | null }
-> */
-{
-  constructor(
-    props: any /*{
-    movies: Movie[];
-    setMovies: (movies: Movie[]) => void;
-  }*/
-  ) {
+class ListSort extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       rise: null,
@@ -30,7 +16,6 @@ class ListSort extends React.Component<any, any>
     movies.sort((a: any, b: any) => {
       return rise ? a[sortKey] - b[sortKey] : b[sortKey] - a[sortKey];
     });
-    console.log(movies);
     this.setState({
       rise: rise,
       sortKey: sortKey,
@@ -38,7 +23,6 @@ class ListSort extends React.Component<any, any>
     this.props.setMovies(movies);
   }
   render() {
-    console.log('state:', this.state);
     return (
       <div className={style.filter}>
         <div className={style.counter}>

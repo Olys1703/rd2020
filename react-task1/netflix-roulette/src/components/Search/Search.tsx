@@ -2,16 +2,17 @@ import React, { FormEvent, useState, ChangeEvent, useEffect } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import style from './search.module.scss';
 import { Movie } from '../../common/types/Movie';
-import getMoviesByDirectorName from '../API/getMoviesByDirectorName';
-import getMoviesByTItle from '../API/getMoviesByTItle';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { fetchMovies } from '../../redux/actions';
 
 interface ISearch extends RouteComponentProps<{ query: string }> {
   setMovies: (movies: Movie[]) => void;
   setListOnload: (listOnload: boolean) => void;
 }
 
-const Search: React.FC<ISearch> = (props) => {
+const Search: React.FC<any> = (props) => {
+  const dispatch = useDispatch();
+
   const [movieName, setMovieName] = useState<{ name: string }>();
   const [inputValue, setInputValue] = useState<string>('');
   const [searchProps, setSearchProps] = useState<string>('title');
@@ -21,23 +22,12 @@ const Search: React.FC<ISearch> = (props) => {
     setInputValue(query);
     setMovieName({ name: query });
   }, []);
+
   useEffect(() => {
     if (inputValue === '') {
       return;
     }
-    props.setListOnload(false);
-    if (searchProps === 'title') {
-      getMoviesByTItle(inputValue).then((movies: any) => {
-        props.setMovies(movies);
-        props.setListOnload(true);
-      });
-    }
-    if (searchProps === 'director') {
-      getMoviesByDirectorName(inputValue).then((movies: any) => {
-        props.setMovies(movies);
-        props.setListOnload(true);
-      });
-    }
+    dispatch(fetchMovies(inputValue, searchProps));
   }, [movieName]);
 
   return (
@@ -45,10 +35,7 @@ const Search: React.FC<ISearch> = (props) => {
       className={style.search}
       onSubmit={(event: FormEvent | KeyboardEvent) => {
         event.preventDefault();
-        console.log(props);
-
         props.history.push(`/search/${inputValue}`);
-
         setMovieName({ name: inputValue });
       }}
     >
@@ -75,7 +62,6 @@ const Search: React.FC<ISearch> = (props) => {
           onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.preventDefault();
             setSearchProps('title');
-            //setMovieName('');
           }}
         >
           TITLE
@@ -102,4 +88,5 @@ const Search: React.FC<ISearch> = (props) => {
     </form>
   );
 };
-export const SearchWithRouter = withRouter(Search);
+
+export default withRouter(Search);
